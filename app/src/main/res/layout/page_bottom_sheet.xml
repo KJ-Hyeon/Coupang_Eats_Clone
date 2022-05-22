@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    app:behavior_draggable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="28dp"
+    android:paddingBottom="12dp"
+    android:paddingHorizontal="12dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <TextView
+        android:id="@+id/tv_bottom_sheet_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이츠 시작하기"
+        style="@style/Page_Bottom_sheet_Head_Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_bottom_sheet_content1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지금 로그인하고"
+        style="@style/Page_Bottom_sheet_Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bottom_sheet_head"
+        android:layout_marginTop="18dp"/>
+
+    <TextView
+        android:id="@+id/tv_bottom_sheet_content2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="무료배달과 기간 한정 쿠폰 혜택 놓치지마세요."
+        style="@style/Page_Bottom_sheet_Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bottom_sheet_content1"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btn_login_coupang"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="쿠팡 앱으로 간편 로그인"
+        android:textColor="@color/My_white"
+        android:background="@drawable/page_bottomsheet_button_blue"
+        app:layout_constraintTop_toBottomOf="@id/tv_bottom_sheet_content2"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btn_login_email"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/page_bottomsheet_button_white"
+        android:text="쿠팡 아이디(이메일)로 로그인"
+        app:layout_constraintTop_toBottomOf="@id/btn_login_coupang"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/tv_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login_email"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:text="아직 회원이 아니신가요?" />
+
+    <TextView
+        android:id="@+id/tv_bottom_sheet_join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/tv_bottom_sheet"
+        app:layout_constraintTop_toBottomOf="@id/btn_login_email"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="3dp"
+        android:textColor="@color/Bottom_Text_blue"
+        android:text="회원가입" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="Home_Text">
+        <item name="android:textColor">@color/My_black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Page_Bottom_sheet_Head_Text">
+        <item name="android:textColor">@color/My_black</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Page_Bottom_sheet_Text">
+        <item name="android:textColor">@color/My_black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+</resources>

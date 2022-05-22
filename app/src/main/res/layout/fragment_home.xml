@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ic_location"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:src="@drawable/ic_location"
+        android:layout_marginStart="@dimen/home_margin"
+        android:layout_marginTop="@dimen/home_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_adress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="금천구청"
+        style="@style/Home_Text"
+        app:layout_constraintStart_toEndOf="@id/ic_location"
+        app:layout_constraintTop_toTopOf="@id/ic_location"
+        app:layout_constraintBottom_toBottomOf="@id/ic_location"
+        android:layout_marginStart="5dp" />
+
+    <ImageView
+        android:id="@+id/arrow_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_down"
+        app:layout_constraintStart_toEndOf="@id/tv_adress"
+        app:layout_constraintTop_toTopOf="@id/ic_location"
+        app:layout_constraintBottom_toBottomOf="@id/ic_location"
+        android:layout_marginStart="5dp" />
+
+    <ImageView
+        android:id="@+id/ic_search"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_search_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="@dimen/home_margin"
+        android:layout_marginTop="@dimen/home_margin" />
+
+    <ImageView
+        android:id="@+id/ic_bell"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_bell"
+        app:layout_constraintEnd_toStartOf="@id/ic_search"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="@dimen/home_margin"
+        android:layout_marginTop="@dimen/home_margin" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/ad_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ic_location"
+        android:layout_marginTop="@dimen/home_margin"/>
+
+    <LinearLayout
+        android:id="@+id/grey_ellipse_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/viewpager_grey_ellipse"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/ad_banner"
+        app:layout_constraintTop_toTopOf="@id/ad_banner"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/tv_current_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="10dp"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:text="/"
+            android:textSize="10dp"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tv_total_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="10dp"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/grey_ellipse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/viewpager_grey_ellipse"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/ad_banner"
+        app:layout_constraintBottom_toBottomOf="@id/ad_banner"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/tv_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이벤트 전체보기"
+            android:textSize="10dp"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
