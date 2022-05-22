@@ -7,16 +7,20 @@
         <entry key="app/src/main/res/drawable/home_selected.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/ic_home_selected.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/item_viewpager_ad.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/join_check_selected.xml" value="0.146" />
+        <entry key="app/src/main/res/drawable/login_edit_background.xml" value="0.157" />
+        <entry key="app/src/main/res/drawable/login_image_background.xml" value="0.157" />
         <entry key="app/src/main/res/drawable/menu_selector_color.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/order_list_selected.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/page_bottomsheet_button_blue.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/page_bottomsheet_button_white.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/page_selected.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/right_stroke.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/search_selected.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/viewpager_grey_ellipse.xml" value="0.144" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.21422101449275363" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22418478260869565" />
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />

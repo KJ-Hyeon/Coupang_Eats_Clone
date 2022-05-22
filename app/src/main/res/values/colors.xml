@@ -13,4 +13,5 @@
     <color name="My_black">#000000</color>
     <color name="My_white">#FFFFFF</color>
     <color name="Bottom_Text_blue">#1EB6FC</color>
+    <color name="Login_Edit_back">#EFEFEF</color>
 </resources>

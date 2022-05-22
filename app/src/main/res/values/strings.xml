@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Coupang_EatsClone</string>
+    <string name="join_text">동의에는 필수 및 선택 목적(광고성 정보 수신 포함)에 대한 동의가 포함되어 있으며, 선\n택 목적의 동의를 거부하시는
+    경우에도 서비스 이용이 가능합니다.</string>
+    <string name="join_sub1">[필수] 만 14세 이상입니다</string>
+    <string name="join_sub2">[필수] 쿠팡 이용약관 동의</string>
+    <string name="join_sub3">[필수] 전자금융거래 이용약관 동의</string>
+    <string name="join_sub4">[필수] 개인정보 수집 및 이용 동의</string>
+    <string name="join_sub5">[필수] 개인정보 제3자 제공 동의</string>
+    <string name="join_sub6">[선택] 광고성 목적의 개인정보 수집 및 이용 동의</string>
+    <string name="join_sub7">[선택] 광고성 정보 수신동의</string>
+    <string name="join_sub8">[선택] 이메일 수신 동의</string>
+    <string name="join_sub9">[선택] SMS,MMS 수신 동의</string>
+    <string name="join_sub10">[선택] 앱 푸시 수신 동의</string>
+
 </resources>

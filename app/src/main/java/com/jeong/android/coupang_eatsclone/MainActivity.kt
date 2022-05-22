@@ -1,16 +1,15 @@
 package com.jeong.android.coupang_eatsclone
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityMainBinding
 import com.jeong.android.coupang_eatsclone.src.main.bookmark.BookMarkFragment
 import com.jeong.android.coupang_eatsclone.src.main.home.HomeFragment
+import com.jeong.android.coupang_eatsclone.src.main.join.JoinActivity
 import com.jeong.android.coupang_eatsclone.src.main.login.LoginActivity
 import com.jeong.android.coupang_eatsclone.src.main.order.OrderFragment
 import com.jeong.android.coupang_eatsclone.src.main.page.PageFragment
@@ -61,11 +60,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                             val login_email = bottomSheetDlg.findViewById<Button>(R.id.btn_login_email)
                             val join = bottomSheetDlg.findViewById<TextView>(R.id.tv_bottom_sheet_join)
                             join?.setOnClickListener {
-                                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                                val intent = Intent(this@MainActivity, JoinActivity::class.java)
                                 startActivity(intent)
                             }
                             login_email?.setOnClickListener {
-                                showCustomToast("login클릭")
+                                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                                startActivity(intent)
                             }
                         }
 
