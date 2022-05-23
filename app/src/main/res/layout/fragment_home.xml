@@ -1,132 +1,667 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ic_location"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:src="@drawable/ic_location"
-        android:layout_marginStart="@dimen/home_margin"
-        android:layout_marginTop="@dimen/home_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/tv_adress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="금천구청"
-        style="@style/Home_Text"
-        app:layout_constraintStart_toEndOf="@id/ic_location"
-        app:layout_constraintTop_toTopOf="@id/ic_location"
-        app:layout_constraintBottom_toBottomOf="@id/ic_location"
-        android:layout_marginStart="5dp" />
-
-    <ImageView
-        android:id="@+id/arrow_down"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/arrow_down"
-        app:layout_constraintStart_toEndOf="@id/tv_adress"
-        app:layout_constraintTop_toTopOf="@id/ic_location"
-        app:layout_constraintBottom_toBottomOf="@id/ic_location"
-        android:layout_marginStart="5dp" />
-
-    <ImageView
-        android:id="@+id/ic_search"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/ic_search_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="@dimen/home_margin"
-        android:layout_marginTop="@dimen/home_margin" />
-
-    <ImageView
-        android:id="@+id/ic_bell"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/ic_bell"
-        app:layout_constraintEnd_toStartOf="@id/ic_search"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="@dimen/home_margin"
-        android:layout_marginTop="@dimen/home_margin" />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/ad_banner"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ic_location"
-        android:layout_marginTop="@dimen/home_margin"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:id="@+id/grey_ellipse_page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/viewpager_grey_ellipse"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/ad_banner"
-        app:layout_constraintTop_toTopOf="@id/ad_banner"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp">
+        <ImageView
+            android:id="@+id/ic_location"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="@dimen/home_margin"
+            android:layout_marginTop="@dimen/home_margin"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_current_banner"
+            android:id="@+id/tv_adress"
+            style="@style/Home_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:textSize="10dp"
-            android:textColor="#FFFFFF" />
+            android:layout_marginStart="5dp"
+            android:text="금천구청"
+            app:layout_constraintBottom_toBottomOf="@id/ic_location"
+            app:layout_constraintStart_toEndOf="@id/ic_location"
+            app:layout_constraintTop_toTopOf="@id/ic_location" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/arrow_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:text="/"
-            android:textSize="10dp"
-            android:textColor="#FFFFFF" />
+            android:layout_marginStart="5dp"
+            android:src="@drawable/arrow_down"
+            app:layout_constraintBottom_toBottomOf="@id/ic_location"
+            app:layout_constraintStart_toEndOf="@id/tv_adress"
+            app:layout_constraintTop_toTopOf="@id/ic_location" />
 
-        <TextView
-            android:id="@+id/tv_total_banner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5"
-            android:textSize="10dp"
-            android:textColor="#FFFFFF" />
+        <ImageView
+            android:id="@+id/ic_search"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="@dimen/home_margin"
+            android:layout_marginEnd="@dimen/home_margin"
+            android:src="@drawable/ic_search_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/ic_bell"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="@dimen/home_margin"
+            android:layout_marginEnd="@dimen/home_margin"
+            android:src="@drawable/ic_bell"
+            app:layout_constraintEnd_toStartOf="@id/ic_search"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/grey_ellipse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/viewpager_grey_ellipse"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/ad_banner"
-        app:layout_constraintBottom_toBottomOf="@id/ad_banner"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp">
+    <com.amar.library.ui.StickyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_bar">
 
-        <TextView
-            android:id="@+id/tv_event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이벤트 전체보기"
-            android:textSize="10dp"
-            android:textColor="#FFFFFF" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_bar">
 
-    </LinearLayout>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/ad_banner"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_marginTop="@dimen/home_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <LinearLayout
+                android:id="@+id/grey_ellipse_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/viewpager_grey_ellipse"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                app:layout_constraintEnd_toEndOf="@id/ad_banner"
+                app:layout_constraintTop_toTopOf="@id/ad_banner">
+
+                <TextView
+                    android:id="@+id/tv_current_banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:text="/"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_total_banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/grey_ellipse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/viewpager_grey_ellipse"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                app:layout_constraintBottom_toBottomOf="@id/ad_banner"
+                app:layout_constraintEnd_toEndOf="@id/ad_banner">
+
+                <TextView
+                    android:id="@+id/tv_event"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이벤트 전체보기"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+            
+            <HorizontalScrollView
+                android:id="@+id/home_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ad_banner">
+
+                <LinearLayout
+                    android:id="@+id/Lin_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_pack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="포장"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_pack" />
+                    <TextView
+                        android:id="@+id/tv_korean_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="한식"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_korean_food" />
+                    <TextView
+                        android:id="@+id/tv_chicken"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="치킨"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_chicken" />
+                    <TextView
+                        android:id="@+id/tv_snack_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="분식"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_snack_bar" />
+                    <TextView
+                        android:id="@+id/tv_pork_cutlet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="돈까스"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_pork_cutlet" />
+                    <TextView
+                        android:id="@+id/tv_pork_feet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="족발/보쌈"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_pork_feet" />
+                    <TextView
+                        android:id="@+id/tv_soup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="찜/탕"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_soup" />
+                    <TextView
+                        android:id="@+id/tv_grill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="구이"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_grill" />
+                    <TextView
+                        android:id="@+id/tv_pizza"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="피자"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_pizza" />
+                    <TextView
+                        android:id="@+id/tv_chinese_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="중식"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_chinese_food" />
+                    <TextView
+                        android:id="@+id/tv_japanese_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="일식"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_japanese_food" />
+                    <TextView
+                        android:id="@+id/tv_raw_fish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="회/해물"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_raw_fish" />
+                    <TextView
+                        android:id="@+id/tv_western_fodd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="양식"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_western_food" />
+                    <TextView
+                        android:id="@+id/tv_coffee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="커피/차"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_coffee" />
+                    <TextView
+                        android:id="@+id/tv_dessert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="디저트"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_dessert" />
+                    <TextView
+                        android:id="@+id/tv_snack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="간식"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_snack" />
+                    <TextView
+                        android:id="@+id/tv_asian_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="아시안"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_asian_food" />
+                    <TextView
+                        android:id="@+id/tv_sandwich"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="샌드위치"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_sandwich" />
+                    <TextView
+                        android:id="@+id/tv_salad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="샐러드"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_salad" />
+                    <TextView
+                        android:id="@+id/tv_hambuger"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="햄버거"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_hamburger" />
+                    <TextView
+                        android:id="@+id/tv_mexican"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="멕시칸"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_mexican" />
+                    <TextView
+                        android:id="@+id/tv_lunch_box"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="도시락"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_lunch_box" />
+                    <TextView
+                        android:id="@+id/tv_porridge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="죽"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_porridge" />
+                    <TextView
+                        android:id="@+id/tv_franchise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="프랜차이즈"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_franchise" />
+                    <TextView
+                        android:id="@+id/tv_new_store"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="신규 맛집"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_new_store" />
+                    <TextView
+                        android:id="@+id/tv_one_serving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:drawablePadding="6dp"
+                        android:gravity="bottom|center"
+                        android:text="1인분"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableTopCompat="@drawable/ic_one_serving" />
+
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_category"
+                android:background="#C1C1C1"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tv_choice_store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="골라먹는 맛집"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="@dimen/home_margin"
+                android:textSize="16sp"
+                android:textColor="@color/My_black"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:id="@+id/home_sort"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_choice_store">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/right_stroke">
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/bg_tag"
+                            android:layout_marginEnd="10dp" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_recommend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:background="@drawable/bg_sort_non_selected"
+                        android:drawableEnd="@drawable/ic_sort_arrow"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="3dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="추천순"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_delivery_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:background="@drawable/bg_sort_non_selected"
+                        android:drawableEnd="@drawable/ic_sort_arrow"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="3dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="배달비"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_min_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:background="@drawable/bg_sort_non_selected"
+                        android:drawableEnd="@drawable/ic_sort_arrow"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="3dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="최소주문"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_pack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:background="@drawable/bg_sort_non_selected"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="포장"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_discount_coupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:background="@drawable/bg_sort_non_selected"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="할인쿠폰"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_drink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/home_margin"
+                        android:background="@drawable/bg_sort_non_selected"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="주류"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/home_margin"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_sort"
+                tools:listitem="@layout/item_home_store" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.amar.library.ui.StickyScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/indicator_circle_black.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/arrow_down.xml" value="0.1425" />
+        <entry key="app/src/main/res/drawable/bg_search_edit.xml" value="0.127" />
+        <entry key="app/src/main/res/drawable/bg_sort_non_selected.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/home_selected.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/ic_home_selected.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/ic_sort_arrow.xml" value="0.127" />
+        <entry key="app/src/main/res/drawable/indicator_circle_grey.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/item_viewpager_ad.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/join_check_selected.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/login_edit_background.xml" value="0.157" />
@@ -18,20 +23,25 @@
         <entry key="app/src/main/res/drawable/right_stroke.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/search_selected.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/viewpager_grey_ellipse.xml" value="0.144" />
+        <entry key="app/src/main/res/layout/activity_first_intro.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22418478260869565" />
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/activity_map_detail.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/activity_map_setting.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.22418478260869565" />
         <entry key="app/src/main/res/layout/fragment_bookmark.xml" value="0.21422101449275363" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17514595496246874" />
         <entry key="app/src/main/res/layout/fragment_order.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_order_list.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_page.xml" value="0.21422101449275363" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_home_store.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_viewpager_ad.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/item_viewpager_intro.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/page_bottom_sheet.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.28125" />
       </map>

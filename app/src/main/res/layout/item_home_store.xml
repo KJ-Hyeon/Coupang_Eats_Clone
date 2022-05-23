@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="18dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/Lin_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:weightSum="4">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/bg_home_rev_item1" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_home_rev_item2" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/bg_home_rev_item3" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/home_rev_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="맥도날드 서울시흥점DT점"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Lin_image"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/home_rev_cheetah"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/home_rev_store_name"
+        app:layout_constraintTop_toTopOf="@id/home_rev_store_name"
+        app:layout_constraintBottom_toBottomOf="@id/home_rev_store_name"
+        android:src="@drawable/ic_delivery_cheetah" />
+
+    <TextView
+        android:id="@+id/home_rev_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="22~32분"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_rev_store_name"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/home_rev_star"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_star_rate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_rev_store_name"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/home_rev_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="4.6"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/home_rev_star"
+        app:layout_constraintTop_toTopOf="@id/home_rev_star"
+        app:layout_constraintBottom_toBottomOf="@id/home_rev_star"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/home_rev_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="(2,305)"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/home_rev_rate"
+        app:layout_constraintTop_toTopOf="@id/home_rev_star"
+        app:layout_constraintBottom_toBottomOf="@id/home_rev_star"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/dot_divide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="•"
+        android:paddingHorizontal="3dp"
+        app:layout_constraintStart_toEndOf="@id/home_rev_review"
+        app:layout_constraintBottom_toBottomOf="@id/home_rev_star"
+        app:layout_constraintTop_toTopOf="@id/home_rev_star"/>
+
+    <TextView
+        android:id="@+id/home_rev_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0.9km"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/dot_divide1"
+        app:layout_constraintTop_toTopOf="@id/home_rev_star"
+        app:layout_constraintBottom_toBottomOf="@id/home_rev_star"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/dot_divide2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="•"
+        android:paddingHorizontal="3dp"
+        app:layout_constraintStart_toEndOf="@id/home_rev_distance"
+        app:layout_constraintBottom_toBottomOf="@id/home_rev_star"
+        app:layout_constraintTop_toTopOf="@id/home_rev_star"/>
+
+    <TextView
+        android:id="@+id/home_rev_delivert_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="무료배달~"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/dot_divide2"
+        app:layout_constraintTop_toTopOf="@id/home_rev_star"
+        app:layout_constraintBottom_toBottomOf="@id/home_rev_star"
+        android:textSize="16sp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

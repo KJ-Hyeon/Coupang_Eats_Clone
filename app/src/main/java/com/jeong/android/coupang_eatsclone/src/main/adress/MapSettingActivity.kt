@@ -4,9 +4,9 @@ import android.os.Bundle
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityLoginBinding
 import com.jeong.android.coupang_eatsclone.databinding.ActivityMainBinding
-import com.jeong.android.coupang_eatsclone.databinding.ActivityMapBinding
+import com.jeong.android.coupang_eatsclone.databinding.ActivityMapSettingBinding
 
-class MapActivity: BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate){
+class MapSettingActivity: BaseActivity<ActivityMapSettingBinding>(ActivityMapSettingBinding::inflate){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
