@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.sSharedPreferences
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityMainBinding
 import com.jeong.android.coupang_eatsclone.src.main.bookmark.BookMarkFragment
@@ -27,7 +28,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var login_state:Boolean = false
+//        val login_state = sSharedPreferences.getString("X_ACCESS_TOKEN",null)
+        val login_state = true
 
         if(!isPermitted()) {
             ActivityCompat.requestPermissions(this, permissions, permission_request)
@@ -59,7 +61,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                             .commit()
                     }
                     R.id.fragment_page -> {
-                        if(login_state) {
+//                        if(!login_state.isNullOrEmpty()) {
+                        if (login_state) {
                             supportFragmentManager.beginTransaction()
                                 .replace(R.id.fl_main, PageFragment())
                                 .commit()
@@ -74,10 +77,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                             join?.setOnClickListener {
                                 val intent = Intent(this@MainActivity, JoinActivity::class.java)
                                 startActivity(intent)
+                                bottomSheetDlg.dismiss()
                             }
                             login_email?.setOnClickListener {
                                 val intent = Intent(this@MainActivity, LoginActivity::class.java)
                                 startActivity(intent)
+                                bottomSheetDlg.dismiss()
                             }
                         }
 

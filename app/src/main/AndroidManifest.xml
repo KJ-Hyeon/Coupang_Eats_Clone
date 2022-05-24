@@ -7,7 +7,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+
     <application
+        android:usesCleartextTraffic="true"
         android:name=".config.ApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -45,6 +47,9 @@
         </activity>
         <activity android:name=".src.main.adress.MapSettingActivity"
             android:exported="false">
+        </activity>
+        <activity android:name=".src.main.adress.MapDetailActivity"
+            android:excludeFromRecents="false">
         </activity>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

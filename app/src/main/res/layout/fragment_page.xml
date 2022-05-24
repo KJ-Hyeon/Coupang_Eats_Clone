@@ -5,12 +5,369 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
+        android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="김정현"
+        android:textSize="26sp"
+        android:textColor="@color/My_black"
+        android:textStyle="bold"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_phone_front"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_user_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+        android:text="010"
+        android:textSize="16sp"
+        android:textColor="@color/My_black"
+        android:layout_marginTop="8dp" />
+    <TextView
+        android:id="@+id/dash1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/tv_phone_front"
+        app:layout_constraintTop_toTopOf="@id/tv_phone_front"
+        android:text="-"
+        android:textSize="16sp"
+        android:textColor="@color/My_black" />
+    <TextView
+        android:id="@+id/tv_phone_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/dash1"
+        app:layout_constraintTop_toTopOf="@id/tv_phone_front"
+        android:text="****"
+        android:textSize="16sp"
+        android:textColor="@color/My_black" />
+    <TextView
+        android:id="@+id/dash2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/tv_phone_middle"
+        app:layout_constraintTop_toTopOf="@id/tv_phone_front"
+        android:text="-"
+        android:textSize="16sp"
+        android:textColor="@color/My_black" />
+    <TextView
+        android:id="@+id/tv_phone_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/dash2"
+        app:layout_constraintTop_toTopOf="@id/tv_phone_front"
+        android:text="8765"
+        android:textSize="16sp"
+        android:textColor="@color/My_black" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_phone_front"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="페이지" />
+        android:layout_marginTop="30dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/page_ad_banner"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:background="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/Lin_page_menu"/>
+
+            <LinearLayout
+                android:id="@+id/grey_ellipse_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/viewpager_grey_ellipse"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                app:layout_constraintBottom_toBottomOf="@id/page_ad_banner"
+                app:layout_constraintEnd_toEndOf="@id/page_ad_banner">
+
+                <TextView
+                    android:id="@+id/tv_current_banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:text="/"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_total_banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Lin_page_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/page_ad_banner"
+                app:layout_constraintBottom_toBottomOf="@id/page_ad_banner"
+                android:paddingHorizontal="18dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_adress_manager"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="주소관리"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_heart"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="즐겨찾기"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_coupon"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="할인쿠폰"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_event"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="진행중인 이벤트"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_gift"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이츠 룰렛"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_payment"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="결제관리"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_partners"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="배달파트너 모집"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_question"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="자주 묻는 질문"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_setting"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="설정"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_notice"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingVertical="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_clause"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="약관 ・ 개인정보 처리방침"
+                        android:textSize="16sp"
+                        android:textColor="@color/My_black"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

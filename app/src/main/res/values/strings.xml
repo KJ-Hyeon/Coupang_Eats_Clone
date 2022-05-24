@@ -12,5 +12,6 @@
     <string name="join_sub8">[선택] 이메일 수신 동의</string>
     <string name="join_sub9">[선택] SMS,MMS 수신 동의</string>
     <string name="join_sub10">[선택] 앱 푸시 수신 동의</string>
+    <string name="detail_bottom_sheet_content">아파트명/동/호 등의 정보를 입력하시면 더 정확하게 배달 할 수\n있습니다.</string>
 
 </resources>

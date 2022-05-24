@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import com.jeong.android.coupang_eatsclone.R
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.sSharedPreferences
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityLoginBinding
 import com.jeong.android.coupang_eatsclone.src.main.login.models.LoginResponse
@@ -30,6 +32,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     override fun onPostLoginSuccess(response: LoginResponse) {
         dismissLoadingDialog()
         response.message?.let { showCustomToast(it) }
+        val jwt = response.result.jwt
+        val userId = response.result.userId
+        ApplicationClass.X_ACCESS_TOKEN
+        val edit = sSharedPreferences.edit()
+        edit.putString("X_ACCESS_TOKEN",jwt)
+        edit.putInt("USER_ID",userId)
+        finish()
     }
 
     override fun onPostLoginFailure(message: String) {

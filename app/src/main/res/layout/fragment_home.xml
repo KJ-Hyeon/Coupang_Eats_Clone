@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/My_white"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,26 +76,24 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.amar.library.ui.StickyScrollView
+    <me.didik.component.StickyNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/home_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_bar">
+        app:layout_constraintTop_toBottomOf="@id/home_bar"
+        app:stickyHeader="@id/Lin_sticky_filter">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_bar">
+            android:layout_height="wrap_content">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/ad_banner"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
-                android:layout_marginTop="@dimen/home_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -556,9 +555,12 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_choice_store">
 
                 <LinearLayout
+                    android:id="@+id/Lin_sticky_filter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:background="@color/My_white"
+                    android:tag="sticky"
+                    android:paddingVertical="12dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -579,13 +581,14 @@
                         android:layout_marginStart="@dimen/home_margin"
                         android:background="@drawable/bg_sort_non_selected"
                         android:drawableEnd="@drawable/ic_sort_arrow"
-                        android:paddingHorizontal="12dp"
-                        android:paddingVertical="3dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingStart="12dp"
+                        android:paddingVertical="2dp"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
                         android:text="추천순"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_delivery_cost"
                         android:layout_width="wrap_content"
@@ -593,13 +596,14 @@
                         android:layout_marginStart="@dimen/home_margin"
                         android:background="@drawable/bg_sort_non_selected"
                         android:drawableEnd="@drawable/ic_sort_arrow"
-                        android:paddingHorizontal="12dp"
-                        android:paddingVertical="3dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingStart="12dp"
+                        android:paddingVertical="2dp"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
                         android:text="배달비"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_min_cost"
                         android:layout_width="wrap_content"
@@ -607,13 +611,14 @@
                         android:layout_marginStart="@dimen/home_margin"
                         android:background="@drawable/bg_sort_non_selected"
                         android:drawableEnd="@drawable/ic_sort_arrow"
-                        android:paddingHorizontal="12dp"
-                        android:paddingVertical="3dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingStart="12dp"
+                        android:paddingVertical="2dp"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
                         android:text="최소주문"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_pack"
                         android:layout_width="wrap_content"
@@ -626,7 +631,7 @@
                         android:minHeight="0dp"
                         android:text="포장"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_discount_coupon"
                         android:layout_width="wrap_content"
@@ -639,7 +644,7 @@
                         android:minHeight="0dp"
                         android:text="할인쿠폰"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_drink"
                         android:layout_width="wrap_content"
@@ -652,7 +657,7 @@
                         android:minHeight="0dp"
                         android:text="주류"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -663,15 +668,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/home_margin"
-                android:layout_marginTop="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_sort"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
                 tools:listitem="@layout/item_home_store" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.amar.library.ui.StickyScrollView>
+    </me.didik.component.StickyNestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

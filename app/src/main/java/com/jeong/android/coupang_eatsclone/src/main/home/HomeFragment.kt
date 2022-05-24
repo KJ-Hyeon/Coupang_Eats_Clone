@@ -7,6 +7,7 @@ import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.jeong.android.coupang_eatsclone.R
@@ -14,8 +15,9 @@ import com.jeong.android.coupang_eatsclone.config.BaseFragment
 import com.jeong.android.coupang_eatsclone.databinding.FragmentBookmarkBinding
 import com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
 import com.jeong.android.coupang_eatsclone.src.main.adress.MapSettingActivity
+import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), HomeFragmentInterface {
 
     private var myHandler = MyHandler()
     private val data = ArrayList<Int>()
@@ -29,6 +31,8 @@ class HomeFragment : Fragment() {
     ): View? {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        HomeService(this).tryGetStore()
 
         // 임의 데이터
         initList()
@@ -68,6 +72,16 @@ class HomeFragment : Fragment() {
         data.add(R.color.purple_200)
         data.add(R.color.purple_500)
         data.add(R.color.purple_700)
+    }
+
+    override fun onGetStoreSuccess(response: HomeStore) {
+        val store_list = response.result
+        val HomeRecyclerViewAdapter = HomeRecyclerViewAdapter(store_list)
+        binding.revHome.adapter = HomeRecyclerViewAdapter
+    }
+
+    override fun onGetStoreFailure(message: String) {
+        Toast.makeText(requireContext(),"오류: $message",Toast.LENGTH_SHORT).show()
     }
 
     private fun autoScrollStart() {

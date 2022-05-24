@@ -29,7 +29,7 @@
         android:paddingHorizontal="12dp">
 
         <TextView
-            android:id="@+id/tv_adress"
+            android:id="@+id/tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="진안골마을주공 7단지"
@@ -38,7 +38,7 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/tv_road_adress"
+            android:id="@+id/tv_road_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="경기도 화성시 병점4로 103"

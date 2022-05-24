@@ -45,8 +45,8 @@ class CurrentUserMapActivity : BaseActivity<ActivityCurrentUserMapBinding>(Activ
 
         binding.btnSetting.setOnClickListener {
             val intent = Intent(this, MapDetailActivity::class.java)
-            intent.putExtra("Adress",binding.tvAdress.text.toString())
-            intent.putExtra("RoadAdress",binding.tvRoadAdress.text.toString())
+            intent.putExtra("Address",binding.tvAddress.text.toString())
+            intent.putExtra("RoadAddress",binding.tvRoadAddress.text.toString())
             startActivity(intent)
         }
 
@@ -118,14 +118,11 @@ class CurrentUserMapActivity : BaseActivity<ActivityCurrentUserMapBinding>(Activ
         naverMap.minZoom = 5.0
         //marker.map = null
 
-        Log.e("TAG", "\"${location.latitude}////${location.longitude}\"", )
     }
 
     override fun onGetAddresSuccess(response: KaKaoData) {
-        binding.tvAdress.text = response.documents[0].road_address.building_name
-        binding.tvRoadAdress.text = response.documents[0].road_address.address_name
-        showCustomToast(response.documents[0].road_address.address_name)
-        showCustomToast(response.documents[0].road_address.building_name)
+        binding.tvAddress.text = response.documents[0].road_address.building_name
+        binding.tvRoadAddress.text = response.documents[0].road_address.address_name
     }
 
     override fun onGetAdressFailure(message: String) {
