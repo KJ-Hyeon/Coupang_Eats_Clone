@@ -1,9 +1,12 @@
 package com.jeong.android.coupang_eatsclone
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityMainBinding
@@ -16,10 +19,19 @@ import com.jeong.android.coupang_eatsclone.src.main.page.PageFragment
 import com.jeong.android.coupang_eatsclone.src.main.search.SearchFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
+
+    var permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION,
+        android.Manifest.permission.ACCESS_COARSE_LOCATION)
+    val permission_request = 99
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         var login_state:Boolean = false
+
+        if(!isPermitted()) {
+            ActivityCompat.requestPermissions(this, permissions, permission_request)
+        }
 
         supportFragmentManager.beginTransaction().replace(R.id.fl_main, HomeFragment()).commit()
 
@@ -75,5 +87,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             }
             selectedItemId = R.id.fragment_home
         }
+    }
+    fun isPermitted(): Boolean {
+        for (perm in permissions) {
+            // perm의 대한 권한을 가지고 있으면 PERMISSION_GRANTED를 리턴하고 가지고 있지 않다면 PERMISSION_DENIED를 리턴
+            if(ContextCompat.checkSelfPermission(this, perm) != PackageManager.PERMISSION_GRANTED) {
+                return false
+            }
+        }
+        return true
     }
 }

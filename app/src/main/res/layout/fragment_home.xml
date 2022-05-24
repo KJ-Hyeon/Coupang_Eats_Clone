@@ -13,36 +13,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/ic_location"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="@dimen/home_margin"
-            android:layout_marginTop="@dimen/home_margin"
-            android:src="@drawable/ic_location"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Lin_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_adress"
-            style="@style/Home_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="금천구청"
-            app:layout_constraintBottom_toBottomOf="@id/ic_location"
-            app:layout_constraintStart_toEndOf="@id/ic_location"
-            app:layout_constraintTop_toTopOf="@id/ic_location" />
+            <ImageView
+                android:id="@+id/ic_location"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="@dimen/home_margin"
+                android:layout_marginTop="@dimen/home_margin"
+                android:src="@drawable/ic_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/arrow_down"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:src="@drawable/arrow_down"
-            app:layout_constraintBottom_toBottomOf="@id/ic_location"
-            app:layout_constraintStart_toEndOf="@id/tv_adress"
-            app:layout_constraintTop_toTopOf="@id/ic_location" />
+            <TextView
+                android:id="@+id/tv_adress"
+                style="@style/Home_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="금천구청"
+                app:layout_constraintBottom_toBottomOf="@id/ic_location"
+                app:layout_constraintStart_toEndOf="@id/ic_location"
+                app:layout_constraintTop_toTopOf="@id/ic_location" />
+
+            <ImageView
+                android:id="@+id/arrow_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@id/ic_location"
+                app:layout_constraintStart_toEndOf="@id/tv_adress"
+                app:layout_constraintTop_toTopOf="@id/ic_location" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <ImageView
             android:id="@+id/ic_search"

@@ -1,5 +1,6 @@
 package com.jeong.android.coupang_eatsclone.src.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
@@ -12,13 +13,14 @@ import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.BaseFragment
 import com.jeong.android.coupang_eatsclone.databinding.FragmentBookmarkBinding
 import com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
+import com.jeong.android.coupang_eatsclone.src.main.adress.MapSettingActivity
 
 class HomeFragment : Fragment() {
 
     private var myHandler = MyHandler()
     private val data = ArrayList<Int>()
     private var currentPos = 0
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +36,11 @@ class HomeFragment : Fragment() {
         binding.adBanner.adapter = viewpager
         binding.adBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         autoScrollStart()
+
+        binding.LinAddress.setOnClickListener {
+            val intent = Intent(requireContext(), MapSettingActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.adBanner.apply {
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
