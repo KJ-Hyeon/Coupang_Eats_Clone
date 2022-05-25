@@ -34,11 +34,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         response.message?.let { showCustomToast(it) }
         val jwt = response.result.jwt
         val userId = response.result.userId
-        ApplicationClass.X_ACCESS_TOKEN
         val edit = sSharedPreferences.edit()
-        edit.putString("X_ACCESS_TOKEN",jwt)
+        edit.putString("X-ACCESS-TOKEN",jwt)
         edit.putInt("USER_ID",userId)
-        finish()
+        edit.commit()
+        this.finish()
     }
 
     override fun onPostLoginFailure(message: String) {

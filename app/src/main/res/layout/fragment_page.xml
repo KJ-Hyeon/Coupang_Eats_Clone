@@ -139,6 +139,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/lin_address_manager"
                     android:paddingVertical="14dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

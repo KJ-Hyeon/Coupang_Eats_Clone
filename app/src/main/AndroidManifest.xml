@@ -51,6 +51,9 @@
         <activity android:name=".src.main.adress.MapDetailActivity"
             android:excludeFromRecents="false">
         </activity>
+        <activity android:name=".src.main.page.AddressManagerActivity"
+            android:excludeFromRecents="false">
+        </activity>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="gv0a385a18" />

@@ -52,6 +52,7 @@ class HomeFragment : Fragment(), HomeFragmentInterface {
                     super.onPageSelected(position)
                     currentPos = position
                     binding.tvCurrentBanner.text = "${(position%data.size)+1}"
+                    binding.tvTotalBanner.text = data.size.toString()
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {

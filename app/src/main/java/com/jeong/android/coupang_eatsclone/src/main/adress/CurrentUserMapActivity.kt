@@ -29,6 +29,8 @@ class CurrentUserMapActivity : BaseActivity<ActivityCurrentUserMapBinding>(Activ
         android.Manifest.permission.ACCESS_COARSE_LOCATION)
     val permission_request = 99
     val geocoder = Geocoder(this)
+    var user_latitude : Double = 0.0
+    var user_longitude : Double = 0.0
 
     private lateinit var naverMap: NaverMap
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -47,7 +49,10 @@ class CurrentUserMapActivity : BaseActivity<ActivityCurrentUserMapBinding>(Activ
             val intent = Intent(this, MapDetailActivity::class.java)
             intent.putExtra("Address",binding.tvAddress.text.toString())
             intent.putExtra("RoadAddress",binding.tvRoadAddress.text.toString())
+            intent.putExtra("UserLatitude",user_latitude)
+            intent.putExtra("UserLongitude",user_longitude)
             startActivity(intent)
+            finish()
         }
 
     }
@@ -107,6 +112,8 @@ class CurrentUserMapActivity : BaseActivity<ActivityCurrentUserMapBinding>(Activ
     fun setLastLocation(location: Location) {
         val myLocation = LatLng(location.latitude, location.longitude)
         val marker = Marker()
+        user_latitude = location.latitude
+        user_longitude = location.longitude
         CurrentUserMapService(this).tryGetAdress(location.longitude.toString(), location.latitude.toString())
         marker.position = myLocation
 

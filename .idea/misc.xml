@@ -29,6 +29,7 @@
         <entry key="app/src/main/res/drawable/right_stroke.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/search_selected.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/viewpager_grey_ellipse.xml" value="0.144" />
+        <entry key="app/src/main/res/layout/activity_address_manager.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_current_user_map.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_first_intro.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.21422101449275363" />
@@ -46,6 +47,7 @@
         <entry key="app/src/main/res/layout/fragment_order_list.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_page.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_address.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/item_home_store.xml" value="0.125" />
         <entry key="app/src/main/res/layout/item_viewpager_ad.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/item_viewpager_intro.xml" value="0.28125" />

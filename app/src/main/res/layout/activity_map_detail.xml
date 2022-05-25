@@ -161,6 +161,7 @@
         android:textStyle="bold"
         android:layout_marginTop="13dp"
         android:paddingBottom="25dp"
+        android:singleLine="true"
         android:visibility="gone"
         />
 
@@ -178,6 +179,20 @@
         android:drawablePadding="15dp"
         android:layout_marginTop="20dp"
         android:text="지도에서 위치 확인하기" />
+
+    <TextView
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이 주소 삭제하기"
+        android:textColor="@color/Bottom_Text_blue"
+        android:background="@drawable/bg_stroke_blue"
+        app:layout_constraintTop_toBottomOf="@id/btn_check_map"
+        app:layout_constraintStart_toStartOf="@id/btn_check_map"
+        app:layout_constraintEnd_toEndOf="@id/btn_check_map"
+        android:layout_marginTop="18dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"/>
 
     <Button
         android:id="@+id/btn_complete"
