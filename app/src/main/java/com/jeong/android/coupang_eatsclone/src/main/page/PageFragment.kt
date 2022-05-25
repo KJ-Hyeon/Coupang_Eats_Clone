@@ -76,7 +76,6 @@ class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind
     private inner class MyHandler : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
-
             if(msg.what == 0) {
                 binding.pageAdBanner.setCurrentItem(++currentPos, true)
                 autoScrollStart() // 계속해서 스크롤을 해야하기 때문에
@@ -94,6 +93,11 @@ class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind
 
     override fun onGetuserFailure(message: String) {
         showCustomToast(message)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        myHandler.removeMessages(0)
     }
 
 }
