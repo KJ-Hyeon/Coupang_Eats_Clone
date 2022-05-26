@@ -1,5 +1,6 @@
 package com.jeong.android.coupang_eatsclone.src.main.adress
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
 import com.jeong.android.coupang_eatsclone.config.ApplicationClass
@@ -23,7 +24,7 @@ class MapSettingService(val mapSettingInterface: MapSettingInterface) {
                 if (response.isSuccessful) {
                     mapSettingInterface.onGetAddressSuccess(response.body() as AddressListResponse)
                 }else {
-                    Log.e(TAG, "onResponse:${response.code()},${response.message()}", )
+                    Log.e(ContentValues.TAG, "onResponse:${response.code()},${response.message()}", )
                 }
             }
 

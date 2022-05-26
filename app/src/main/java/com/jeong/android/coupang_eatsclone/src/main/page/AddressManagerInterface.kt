@@ -5,10 +5,15 @@ import com.jeong.android.coupang_eatsclone.src.main.adress.models.AddressRespons
 import com.jeong.android.coupang_eatsclone.src.main.page.models.DetailAddressResponse
 import com.jeong.android.coupang_eatsclone.src.main.page.models.UserResponse
 
-interface PageFragmentInterface {
+interface AddressManagerInterface {
 
-    fun onGetuserSuccess(response: UserResponse)
+    fun onGetAddressSuccess(response: AddressListResponse)
 
-    fun onGetuserFailure(message: String)
+    fun onGetAddressFailure(message: String)
+
+    fun onGetDetailAddressSuccess(response: DetailAddressResponse)
+
+    fun onGetDetailAddressFailure(message: String)
+
 
 }

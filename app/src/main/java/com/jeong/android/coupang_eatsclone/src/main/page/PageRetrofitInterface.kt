@@ -17,8 +17,8 @@ interface PageRetrofitInterface {
     @GET("/users/my-eats")
     fun getUser(): Call<UserResponse>
 
-    @GET("/users/address")
-    fun getAddressList(): Call<AddressListResponse>
+//    @GET("/users/address")
+//    fun getAddressList(): Call<AddressListResponse>
 
     // 상세조회
     @GET("/users/address/{addressIdx}")

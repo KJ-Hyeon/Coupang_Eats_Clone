@@ -28,6 +28,4 @@ class PageFragmentService(val pageFragmentInterface: PageFragmentInterface) {
         })
     }
 
-
-
 }

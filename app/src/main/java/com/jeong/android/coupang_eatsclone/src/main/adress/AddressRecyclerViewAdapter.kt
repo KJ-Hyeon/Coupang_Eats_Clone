@@ -9,12 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jeong.android.coupang_eatsclone.databinding.ItemAddressBinding
 import com.jeong.android.coupang_eatsclone.databinding.ItemHomeStoreBinding
+import com.jeong.android.coupang_eatsclone.src.main.adress.models.AddressResponse
 import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
+import com.jeong.android.coupang_eatsclone.src.main.page.models.AddressPatchResponse
 
 class AddressRecyclerViewAdapter(private val data: List<ResultAddressList>) :
-    RecyclerView.Adapter<AddressRecyclerViewAdapter.AddressRecyclerViewHolder>() {
+    RecyclerView.Adapter<AddressRecyclerViewAdapter.AddressRecyclerViewHolder>(){
 
     private lateinit var binding: ItemAddressBinding
 
@@ -53,7 +55,9 @@ class AddressRecyclerViewAdapter(private val data: List<ResultAddressList>) :
             // 클릭 이벤트
             binding.root.setOnClickListener {
 //                listener?.onItemClick(binding.root, str, adapterPosition)
+
             }
         }
     }
+
 }

@@ -10,7 +10,9 @@ import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.BaseFragment
 import com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
 import com.jeong.android.coupang_eatsclone.databinding.FragmentPageBinding
+import com.jeong.android.coupang_eatsclone.src.main.adress.models.AddressListResponse
 import com.jeong.android.coupang_eatsclone.src.main.home.AdViewPagerAdapter
+import com.jeong.android.coupang_eatsclone.src.main.page.models.DetailAddressResponse
 import com.jeong.android.coupang_eatsclone.src.main.page.models.UserResponse
 
 class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind, R.layout.fragment_page) ,
@@ -95,6 +97,7 @@ class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind
         showCustomToast(message)
     }
 
+    // 리사이클러뷰
     override fun onPause() {
         super.onPause()
         myHandler.removeMessages(0)
