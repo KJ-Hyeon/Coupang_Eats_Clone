@@ -9,7 +9,9 @@
         <entry key="app/src/main/res/drawable/bg_btn_detail.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_check_delivery.xml" value="0.189" />
         <entry key="app/src/main/res/drawable/bg_detail_menu.xml" value="0.189" />
+        <entry key="app/src/main/res/drawable/bg_detail_menu_non_selected.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/bg_location_btn.xml" value="0.189" />
+        <entry key="app/src/main/res/drawable/bg_round_grey.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/bg_search_edit.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/bg_sort_non_selected.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/bg_stroke_blue.xml" value="0.188" />
@@ -44,11 +46,13 @@
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/activity_map_detail.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_map_setting.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_order.xml" value="0.15989583333333332" />
+        <entry key="app/src/main/res/layout/activity_order.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/activity_store.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.22418478260869565" />
         <entry key="app/src/main/res/layout/fragment_bookmark.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/fragment_bookmark_list.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/fragment_bookmark_none.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18335588633288227" />
         <entry key="app/src/main/res/layout/fragment_order.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_order_list.xml" value="0.21422101449275363" />
@@ -56,6 +60,9 @@
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_address.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/item_home_store.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_order_menu_in.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/item_order_menu_in_check.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_order_menu_out.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_store_category.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/item_store_menu_in.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_store_menu_out.xml" value="0.28125" />

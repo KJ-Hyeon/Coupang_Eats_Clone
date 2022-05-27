@@ -2,6 +2,8 @@ package com.jeong.android.coupang_eatsclone.src.main.adress
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.sSharedPreferences
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityLoginBinding
 import com.jeong.android.coupang_eatsclone.databinding.ActivityMainBinding
@@ -15,6 +17,7 @@ class MapSettingActivity: BaseActivity<ActivityMapSettingBinding>(ActivityMapSet
 
     private lateinit var addressRecyclerViewAdapter: AddressRecyclerViewAdapter
     private var addressList = mutableListOf<ResultAddressList>()
+    val editor = sSharedPreferences.edit()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +26,15 @@ class MapSettingActivity: BaseActivity<ActivityMapSettingBinding>(ActivityMapSet
 
         addressRecyclerViewAdapter = AddressRecyclerViewAdapter(addressList)
         binding.addressRev.adapter = addressRecyclerViewAdapter
+
+        addressRecyclerViewAdapter.setOnItemClickListener(object : AddressRecyclerViewAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, data: ResultAddressList, Pos: Int) {
+                editor.putString("mainAddress",data.main_address)
+                editor.commit()
+                finish()
+            }
+        })
+
 
         binding.btnCurrentLocation.setOnClickListener {
             val intent = Intent(this,CurrentUserMapActivity::class.java)

@@ -20,13 +20,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rev_store_menu_content"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/store_category"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_store_menu_in"
         android:layout_marginHorizontal="20dp"/>
 

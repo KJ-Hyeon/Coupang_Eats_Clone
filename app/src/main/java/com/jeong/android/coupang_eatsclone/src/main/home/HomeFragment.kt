@@ -11,11 +11,16 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.jeong.android.coupang_eatsclone.R
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass
 import com.jeong.android.coupang_eatsclone.config.BaseFragment
 import com.jeong.android.coupang_eatsclone.databinding.FragmentBookmarkBinding
 import com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
+import com.jeong.android.coupang_eatsclone.src.main.Store.StoreActivity
+import com.jeong.android.coupang_eatsclone.src.main.adress.AddressRecyclerViewAdapter
 import com.jeong.android.coupang_eatsclone.src.main.adress.MapSettingActivity
+import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
+import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
     HomeFragmentInterface {
@@ -23,13 +28,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     private var myHandler = MyHandler()
     private val data = ArrayList<Int>()
     private var currentPos = 0
+    private lateinit var homeRecyclerViewAdapter: HomeRecyclerViewAdapter
+    private var storeList = mutableListOf<Result>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         HomeService(this).tryGetStore()
 
+        homeRecyclerViewAdapter = HomeRecyclerViewAdapter(storeList)
+        binding?.revHome?.adapter = homeRecyclerViewAdapter
+
+        homeRecyclerViewAdapter.setOnItemClickListener(object : HomeRecyclerViewAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, Pos: Int) {
+                val intent = Intent(requireContext(), StoreActivity::class.java)
+                intent.putExtra("Pos",Pos+1)
+                startActivity(intent)
+            }
+        })
 
         // 임의 데이터
         initList()
@@ -72,9 +88,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     }
 
     override fun onGetStoreSuccess(response: HomeStore) {
-        val store_list = response.result
-        val HomeRecyclerViewAdapter = HomeRecyclerViewAdapter(store_list)
-        binding?.revHome?.adapter = HomeRecyclerViewAdapter
+
+//        val store_list = response.result
+//        val HomeRecyclerViewAdapter = HomeRecyclerViewAdapter(store_list)
+//        binding?.revHome?.adapter = HomeRecyclerViewAdapter
+
+        if (response.result.isNotEmpty()) {
+            storeList = response.result.toMutableList()
+            homeRecyclerViewAdapter.addData(storeList)
+        }
     }
 
     override fun onGetStoreFailure(message: String) {
@@ -103,5 +125,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     override fun onPause() {
         super.onPause()
         myHandler.removeMessages(0)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val mainAddress = ApplicationClass.sSharedPreferences.getString("mainAddress","주소를 설정해주세요")
+        binding?.tvAdress?.text = mainAddress
     }
 }

@@ -26,6 +26,7 @@ class MapDetailActivity :
     var menu_list = ArrayList<ImageView>()
     var addressName = " "
     var status = " "
+    val editor = sSharedPreferences.edit()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,6 +151,8 @@ class MapDetailActivity :
                         mainAddress!!, detailAddress, addressGuide,
                         userId!!, userLongitude, userLatitude, addressName, status
                     )
+                    editor.putString("mainAddress",mainAddress)
+                    editor.commit()
                     MapDetailService(this).tryPostAddress(postRequest)
                 }
             }
@@ -231,7 +234,6 @@ class MapDetailActivity :
     }
 
     override fun onPostAddressSuccess(response: AddressResponse) {
-        showCustomToast("${response.code}")
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

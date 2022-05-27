@@ -8,10 +8,11 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jeong.android.coupang_eatsclone.databinding.ItemHomeStoreBinding
+import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
 
-class HomeRecyclerViewAdapter(private val data: List<Result>) :
+class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
     RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeRecyclerViewHolder>() {
 
     private lateinit var binding: ItemHomeStoreBinding
@@ -21,7 +22,7 @@ class HomeRecyclerViewAdapter(private val data: List<Result>) :
 
     // 클릭이벤트
     interface OnItemClickListener {
-        fun onItemClick(v: View, data: String, Pos: Int)
+        fun onItemClick(v: View, Pos: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecyclerViewHolder {
@@ -35,6 +36,11 @@ class HomeRecyclerViewAdapter(private val data: List<Result>) :
 
     override fun getItemCount(): Int {
         return data.size
+    }
+
+    fun addData(item: List<Result>) {
+        data.addAll(item)
+        notifyDataSetChanged()
     }
 
 
@@ -66,7 +72,7 @@ class HomeRecyclerViewAdapter(private val data: List<Result>) :
 
             // 클릭 이벤트
             binding.root.setOnClickListener {
-//                listener?.onItemClick(binding.root, str, adapterPosition)
+                listener?.onItemClick(binding.root, adapterPosition)
             }
         }
     }
