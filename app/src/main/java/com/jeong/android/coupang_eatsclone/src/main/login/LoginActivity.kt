@@ -1,5 +1,6 @@
 package com.jeong.android.coupang_eatsclone.src.main.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -26,6 +27,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         }
         binding.icVisible.setOnClickListener {
             TogglePassword()
+        }
+        binding.icFinish.setOnClickListener {
+            finish()
+        }
+        binding.tvFindPassword.setOnClickListener {
+            val intent = Intent(this, FindPasswordActivity::class.java)
+            startActivity(intent)
         }
     }
 

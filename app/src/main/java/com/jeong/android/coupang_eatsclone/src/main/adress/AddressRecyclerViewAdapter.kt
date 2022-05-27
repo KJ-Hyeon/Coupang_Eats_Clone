@@ -1,5 +1,6 @@
 package com.jeong.android.coupang_eatsclone.src.main.adress
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
 import com.jeong.android.coupang_eatsclone.src.main.page.models.AddressPatchResponse
 
-class AddressRecyclerViewAdapter(private val data: List<ResultAddressList>) :
+class AddressRecyclerViewAdapter(private val data: MutableList<ResultAddressList>) :
     RecyclerView.Adapter<AddressRecyclerViewAdapter.AddressRecyclerViewHolder>(){
 
     private lateinit var binding: ItemAddressBinding
@@ -25,7 +26,7 @@ class AddressRecyclerViewAdapter(private val data: List<ResultAddressList>) :
 
     // 클릭이벤트
     interface OnItemClickListener {
-        fun onItemClick(v: View, data: String, Pos: Int)
+        fun onItemClick(v: View, data: ResultAddressList, Pos: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressRecyclerViewHolder {
@@ -41,6 +42,10 @@ class AddressRecyclerViewAdapter(private val data: List<ResultAddressList>) :
         return data.size
     }
 
+    fun addData(item: List<ResultAddressList>) {
+        data.addAll(item)
+        notifyDataSetChanged()
+    }
 
     // 클릭이벤트
     fun setOnItemClickListener(listener: OnItemClickListener) {
@@ -51,10 +56,11 @@ class AddressRecyclerViewAdapter(private val data: List<ResultAddressList>) :
         fun bind(item: ResultAddressList) {
             // 별칭의 유뮤에 따른  binding.tvAddressName.text setting
             binding.tvAddressName.text = item.main_address
-            binding.tvAddressDetailName.text = item.detail_address
+            binding.tvAddressDetailName.text = item.main_address + item.detail_address
             // 클릭 이벤트
             binding.root.setOnClickListener {
-//                listener?.onItemClick(binding.root, str, adapterPosition)
+                listener?.onItemClick(binding.root, item, adapterPosition)
+                Log.e(TAG, "bind: RevClick", )
 
             }
         }

@@ -115,6 +115,10 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
         if (!binding.joinCheck8.isChecked && !binding.joinCheck9.isChecked && !binding.joinCheck10.isChecked) {
             binding.joinCheck7.isChecked = false
         }
+
+        binding.icFinish.setOnClickListener {
+            finish()
+        }
     }
 
     private fun TogglePassword() {

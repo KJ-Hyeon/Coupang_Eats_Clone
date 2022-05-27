@@ -27,6 +27,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow_back_white"
+                app:layout_constraintStart_toStartOf="@id/name_detail_store"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/ic_share"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_share_white"
+                app:layout_constraintTop_toTopOf="@id/ic_back"
+                app:layout_constraintEnd_toStartOf="@id/ic_heart"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                android:id="@+id/ic_heart"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_heart_white"
+                app:layout_constraintTop_toTopOf="@id/ic_back"
+                app:layout_constraintEnd_toEndOf="@id/name_detail_store" />
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/name_detail_store"
                 android:layout_width="0dp"

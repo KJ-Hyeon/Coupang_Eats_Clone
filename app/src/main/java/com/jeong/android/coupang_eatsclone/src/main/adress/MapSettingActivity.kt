@@ -7,29 +7,38 @@ import com.jeong.android.coupang_eatsclone.databinding.ActivityLoginBinding
 import com.jeong.android.coupang_eatsclone.databinding.ActivityMainBinding
 import com.jeong.android.coupang_eatsclone.databinding.ActivityMapSettingBinding
 import com.jeong.android.coupang_eatsclone.src.main.adress.models.AddressListResponse
+import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
 import com.jeong.android.coupang_eatsclone.src.main.home.HomeRecyclerViewAdapter
 
 class MapSettingActivity: BaseActivity<ActivityMapSettingBinding>(ActivityMapSettingBinding::inflate) ,
             MapSettingInterface{
+
+    private lateinit var addressRecyclerViewAdapter: AddressRecyclerViewAdapter
+    private var addressList = mutableListOf<ResultAddressList>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         MapSettingService(this).tryGetAddressList()
 
+        addressRecyclerViewAdapter = AddressRecyclerViewAdapter(addressList)
+        binding.addressRev.adapter = addressRecyclerViewAdapter
 
         binding.btnCurrentLocation.setOnClickListener {
             val intent = Intent(this,CurrentUserMapActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+        binding.icFinish.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onGetAddressSuccess(response: AddressListResponse) {
         if (response.result.isNotEmpty()) {
-            val addressList = response.result
-            val addressRecyclerViewAdapter = AddressRecyclerViewAdapter(addressList)
-            binding.addressRev.adapter = addressRecyclerViewAdapter
+            addressList = response.result.toMutableList()
+            addressRecyclerViewAdapter.addData(addressList)
         }
     }
 

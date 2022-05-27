@@ -1,10 +1,8 @@
 package com.jeong.android.coupang_eatsclone
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
@@ -17,7 +15,7 @@ import com.jeong.android.coupang_eatsclone.src.main.bookmark.BookMarkFragment
 import com.jeong.android.coupang_eatsclone.src.main.home.HomeFragment
 import com.jeong.android.coupang_eatsclone.src.main.join.JoinActivity
 import com.jeong.android.coupang_eatsclone.src.main.login.LoginActivity
-import com.jeong.android.coupang_eatsclone.src.main.order.OrderFragment
+import com.jeong.android.coupang_eatsclone.src.main.order_list.OrderListFragment
 import com.jeong.android.coupang_eatsclone.src.main.page.PageFragment
 import com.jeong.android.coupang_eatsclone.src.main.search.SearchFragment
 
@@ -57,7 +55,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     }
                     R.id.fragment_order_list -> {
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.fl_main, OrderFragment())
+                            .replace(R.id.fl_main, OrderListFragment())
                             .commit()
                     }
                     R.id.fragment_page -> {

@@ -1,14 +1,18 @@
 package com.jeong.android.coupang_eatsclone.src.main.page
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityAddressManagerBinding
 import com.jeong.android.coupang_eatsclone.src.main.adress.AddressRecyclerViewAdapter
 import com.jeong.android.coupang_eatsclone.src.main.adress.MapDetailActivity
 import com.jeong.android.coupang_eatsclone.src.main.adress.MapSettingActivity
 import com.jeong.android.coupang_eatsclone.src.main.adress.models.AddressListResponse
+import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
 import com.jeong.android.coupang_eatsclone.src.main.home.HomeRecyclerViewAdapter
 import com.jeong.android.coupang_eatsclone.src.main.page.models.DetailAddressResponse
 
@@ -16,24 +20,37 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
             AddressManagerInterface{
 
     private lateinit var addressRecyclerViewAdapter: AddressRecyclerViewAdapter
+    private var addressList = mutableListOf<ResultAddressList>()
+
     var index = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         AddressManagerService(this).tryGetAddressList()
+        showLoadingDialog(this)
+        val jwtToken: String? = ApplicationClass.sSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, null)
+        Log.e(TAG, "onCreate: ${jwtToken}", )
+
+
+        addressRecyclerViewAdapter = AddressRecyclerViewAdapter(addressList)
+        binding.managerRev.adapter = addressRecyclerViewAdapter
 
         binding.tvAddAddress.setOnClickListener {
             val intent = Intent(this, MapDetailActivity::class.java)
             startActivity(intent)
         }
+
         addressRecyclerViewAdapter.setOnItemClickListener(object : AddressRecyclerViewAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, data: String, Pos: Int) {
+            override fun onItemClick(v: View, data: ResultAddressList, Pos: Int) {
 //                AddressManagerService(this).tryGetDetailAddress(Pos)
-                revClick(Pos)
-                index = Pos
+                revClick(Pos+1)
+                showCustomToast("$Pos")
+                index = Pos+1
             }
         })
+
         binding.icBack.setOnClickListener {
             finish()
         }
@@ -45,9 +62,9 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
 
     override fun onGetAddressSuccess(response: AddressListResponse) {
         if (response.result.isNotEmpty()) {
-            val addressList = response.result
-            val addressRecyclerViewAdapter = AddressRecyclerViewAdapter(addressList)
-            binding.managerRev.adapter = addressRecyclerViewAdapter
+            addressList = response.result.toMutableList()
+            addressRecyclerViewAdapter.addData(addressList)
+            dismissLoadingDialog()
         }
     }
 
@@ -66,6 +83,7 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
         intent.putExtra("checkDelete", true)
         intent.putExtra("Index",index)
         startActivity(intent)
+        Log.e(TAG, "onGetDetailAddressSuccess: ${response.result}", )
 
     }
 

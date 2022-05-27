@@ -32,9 +32,9 @@ class MapDetailActivity :
 
         val intent = intent
         val mainAddress = intent.getStringExtra("Address")
-        val userLatitude = round(intent.getDoubleExtra("UserLatitude", 0.0) * 100) / 100.toDouble()
-        val userLongitude =
-            round(intent.getDoubleExtra("UserLongitude", 0.0) * 100) / 100.toDouble()
+        val roadAddress = intent.getStringExtra("RoadAddress")
+        val userLatitude = intent.getDoubleExtra("UserLatitude", 0.0)
+        val userLongitude = intent.getDoubleExtra("UserLongitude", 0.0)
         val checkDelete = intent.getBooleanExtra("checkDelete", false)
 
         val userId = sSharedPreferences.getInt("USER_ID", -1)
@@ -50,7 +50,7 @@ class MapDetailActivity :
         if (checkDelete) {
             binding.btnDelete.visibility = View.VISIBLE
             binding.tvAddress.text = intent.getStringExtra("mainAddress")
-            binding.tvRoadAddress.text = intent.getStringExtra("DetailAddress")
+            binding.etDetailAdress.setText(intent.getStringExtra("DetailAddress"))
             binding.etGuideRoad.setText(intent.getStringExtra("AddressGuide"))
             var save_status = intent.getStringExtra("Status")
             if (save_status == "E") {
@@ -58,16 +58,22 @@ class MapDetailActivity :
                 binding.etAdressNickname.visibility = View.VISIBLE
                 binding.etAdressNickname.setText(intent.getStringExtra("AddressName"))
                 status = "E"
+                binding.detailMenuHome.tag = 1
+                binding.detailMenuOffice.tag = 3
                 change_menu_image()
             } else if (status == "H") {
                 binding.detailMenuHome.tag = 2
                 addressName = "home"
                 status = "H"
+                binding.detailMenuOffice.tag = 3
+                binding.detailMenuEtc.tag = 5
                 change_menu_image()
             } else {
-                binding.detailMenuHome.tag = 4
+                binding.detailMenuOffice.tag = 4
                 addressName = "office"
                 status = "C"
+                binding.detailMenuHome.tag = 1
+                binding.detailMenuEtc.tag = 5
                 change_menu_image()
             }
         } else {
@@ -245,6 +251,7 @@ class MapDetailActivity :
 
     override fun onPatchAddressSuccess(response: AddressPatchResponse) {
         showCustomToast("주소가 변경되었습니다.")
+        finish()
     }
 
     override fun onPatchAdressFailure(message: String) {

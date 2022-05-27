@@ -86,8 +86,8 @@
 
         <ImageView
             android:id="@+id/iv_add_home"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:src="@drawable/ic_add_home"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -140,8 +140,8 @@
 
         <ImageView
             android:id="@+id/iv_add_office"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:src="@drawable/ic_add_office"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -186,12 +186,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/address_rev"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="@id/con_add_office"
         app:layout_constraintStart_toStartOf="@id/con_add_office"
         app:layout_constraintTop_toBottomOf="@id/con_add_office"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_address" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

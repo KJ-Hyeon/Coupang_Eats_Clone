@@ -28,22 +28,22 @@ class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind
         PageFragmentService(this).tryGetUser()
         initList()
         val viewpager = AdViewPagerAdapter(data)
-        binding.pageAdBanner.adapter = viewpager
-        binding.pageAdBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding?.pageAdBanner?.adapter = viewpager
+        binding?.pageAdBanner?.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         autoScrollStart()
 
-        binding.linAddressManager.setOnClickListener {
+        binding?.linAddressManager?.setOnClickListener {
             val intent = Intent(requireContext(),AddressManagerActivity::class.java)
             startActivity(intent)
         }
 
-        binding.pageAdBanner.apply {
+        binding?.pageAdBanner?.apply {
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     currentPos = position
-                    binding.tvCurrentBanner.text = "${(position%data.size)+1}"
-                    binding.tvTotalBanner.text = data.size.toString()
+                    binding?.tvCurrentBanner?.text = "${(position%data.size)+1}"
+                    binding?.tvTotalBanner?.text = data.size.toString()
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {
@@ -79,17 +79,17 @@ class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             if(msg.what == 0) {
-                binding.pageAdBanner.setCurrentItem(++currentPos, true)
+                binding?.pageAdBanner?.setCurrentItem(++currentPos, true)
                 autoScrollStart() // 계속해서 스크롤을 해야하기 때문에
             }
         }
     }
 
     override fun onGetuserSuccess(response: UserResponse) {
-        binding.tvUserName.text = response.result.user_name
+        binding?.tvUserName?.text = response.result.user_name
         val phoneNumber = response.result.user_phone
-        binding.tvPhoneFront.text = phoneNumber.substring(0 until 3)
-        binding.tvPhoneEnd.text = phoneNumber.subSequence(7 until 11)
+        binding?.tvPhoneFront?.text = phoneNumber.substring(0 until 3)
+        binding?.tvPhoneEnd?.text = phoneNumber.subSequence(7 until 11)
 
     }
 

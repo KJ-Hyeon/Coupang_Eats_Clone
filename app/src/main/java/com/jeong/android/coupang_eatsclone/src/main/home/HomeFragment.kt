@@ -17,42 +17,39 @@ import com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
 import com.jeong.android.coupang_eatsclone.src.main.adress.MapSettingActivity
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 
-class HomeFragment : Fragment(), HomeFragmentInterface {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
+    HomeFragmentInterface {
 
     private var myHandler = MyHandler()
     private val data = ArrayList<Int>()
     private var currentPos = 0
-    private lateinit var binding: com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentHomeBinding.inflate(layoutInflater)
 
         HomeService(this).tryGetStore()
+
 
         // 임의 데이터
         initList()
         val viewpager = AdViewPagerAdapter(data)
-        binding.adBanner.adapter = viewpager
-        binding.adBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding?.adBanner?.adapter = viewpager
+        binding?.adBanner?.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         autoScrollStart()
 
-        binding.LinAddress.setOnClickListener {
+        binding?.LinAddress?.setOnClickListener {
             val intent = Intent(requireContext(), MapSettingActivity::class.java)
             startActivity(intent)
         }
 
-        binding.adBanner.apply {
+        binding?.adBanner?.apply {
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     currentPos = position
-                    binding.tvCurrentBanner.text = "${(position%data.size)+1}"
-                    binding.tvTotalBanner.text = data.size.toString()
+                    binding?.tvCurrentBanner?.text = "${(position%data.size)+1}"
+                    binding?.tvTotalBanner?.text = data.size.toString()
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {
@@ -64,7 +61,6 @@ class HomeFragment : Fragment(), HomeFragmentInterface {
                 }
             })
         }
-        return binding.root
     }
 
     private fun initList() {
@@ -78,7 +74,7 @@ class HomeFragment : Fragment(), HomeFragmentInterface {
     override fun onGetStoreSuccess(response: HomeStore) {
         val store_list = response.result
         val HomeRecyclerViewAdapter = HomeRecyclerViewAdapter(store_list)
-        binding.revHome.adapter = HomeRecyclerViewAdapter
+        binding?.revHome?.adapter = HomeRecyclerViewAdapter
     }
 
     override fun onGetStoreFailure(message: String) {
@@ -99,9 +95,13 @@ class HomeFragment : Fragment(), HomeFragmentInterface {
             super.handleMessage(msg)
 
             if(msg.what == 0) {
-                binding.adBanner.setCurrentItem(++currentPos, true)
+                binding?.adBanner?.setCurrentItem(++currentPos, true)
                 autoScrollStart() // 계속해서 스크롤을 해야하기 때문에
             }
         }
+    }
+    override fun onPause() {
+        super.onPause()
+        myHandler.removeMessages(0)
     }
 }
