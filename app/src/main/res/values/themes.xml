@@ -15,5 +15,6 @@
         <!-- Customize your theme here. -->
         <item name="android:textCursorDrawable">@color/Bottom_Text_blue</item>
 
+
     </style>
 </resources>

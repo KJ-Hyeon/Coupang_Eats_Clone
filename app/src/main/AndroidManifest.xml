@@ -64,6 +64,12 @@
         <activity android:name=".src.main.order.OrderActivity"
             android:exported="false">
         </activity>
+        <activity android:name=".src.main.bookmark.BookMarkListActivity"
+            android:exported="false">
+        </activity>
+        <activity android:name=".src.main.bookmark.BookMarkNoneActivity"
+            android:exported="false">
+        </activity>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="gv0a385a18" />

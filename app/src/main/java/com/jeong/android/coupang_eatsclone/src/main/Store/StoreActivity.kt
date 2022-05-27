@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
+import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityStoreBinding
 import com.jeong.android.coupang_eatsclone.src.main.Store.models.Review
@@ -32,6 +33,11 @@ class StoreActivity: BaseActivity<ActivityStoreBinding>(ActivityStoreBinding::in
         storeReviewRecyclerViewAdapter = StoreReviewRecyclerViewAdapter(reviewList)
         binding.revStoreReview.adapter = storeReviewRecyclerViewAdapter
 
+//        binding.icHeart.setOnClickListener {
+//            binding.icHeart.setImageResource(R.drawable.ic_heart_white_selected)
+//        }
+
+
 
     }
 
@@ -53,6 +59,7 @@ class StoreActivity: BaseActivity<ActivityStoreBinding>(ActivityStoreBinding::in
         binding.tvReviewCnt.text = response.result.cnt.toString()
 
         storeReviewRecyclerViewAdapter.addData(response.result.review)
+
 
 
     }

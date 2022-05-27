@@ -22,4 +22,14 @@
         <item name="colorControlActivated">@color/star_yellow</item>
     </style>
     
+<!--  TabLayout Style -->
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabPaddingBottom">12dp</item>
+        <item name="tabPaddingTop">12dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabIndicatorColor">@color/My_black</item>
+        <item name="tabSelectedTextColor">@color/My_black</item>
+    </style>
+    
 </resources>
