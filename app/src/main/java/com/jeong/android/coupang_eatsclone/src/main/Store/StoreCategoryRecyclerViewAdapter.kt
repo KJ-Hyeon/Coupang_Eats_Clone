@@ -4,10 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jeong.android.coupang_eatsclone.databinding.ItemStoreCategoryBinding
-import com.jeong.android.coupang_eatsclone.databinding.ItemViewpagerAdBinding
-import com.jeong.android.coupang_eatsclone.src.main.Store.models.Review
+import com.jeong.android.coupang_eatsclone.src.main.Store.models.MenuCategory
 
-class StoreCategoryRecyclerViewAdapter(private val data: ArrayList<Int>) : RecyclerView.Adapter<StoreCategoryRecyclerViewAdapter.StoreCategoryRecyclerViewHolder>() {
+class StoreCategoryRecyclerViewAdapter(private val data: MutableList<MenuCategory>) : RecyclerView.Adapter<StoreCategoryRecyclerViewAdapter.StoreCategoryRecyclerViewHolder>() {
 
     private lateinit var binding: ItemStoreCategoryBinding
 
@@ -24,14 +23,15 @@ class StoreCategoryRecyclerViewAdapter(private val data: ArrayList<Int>) : Recyc
         return data.size
     }
 
-//    fun addData(item: List<Review>) {
-//        data.addAll(item)
-//        notifyDataSetChanged()
-//    }
+
+    fun addData(item: List<MenuCategory>) {
+        data.addAll(item)
+        notifyDataSetChanged()
+    }
 
     inner class StoreCategoryRecyclerViewHolder(private val binding: ItemStoreCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(image: Int) {
-
+        fun bind(item: MenuCategory) {
+            binding.tvStoreCategory.text = item.keywordName
         }
     }
 }

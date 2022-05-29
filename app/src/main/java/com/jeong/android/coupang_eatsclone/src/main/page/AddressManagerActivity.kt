@@ -46,7 +46,6 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
             override fun onItemClick(v: View, data: ResultAddressList, Pos: Int) {
 //                AddressManagerService(this).tryGetDetailAddress(Pos)
                 revClick(Pos+1)
-                showCustomToast("$Pos")
                 index = Pos+1
             }
         })
@@ -82,6 +81,7 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
         intent.putExtra("AddressName",response.result.address_name)
         intent.putExtra("checkDelete", true)
         intent.putExtra("Index",index)
+        showCustomToast("$index")
         startActivity(intent)
         Log.e(TAG, "onGetDetailAddressSuccess: ${response.result}", )
 

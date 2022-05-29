@@ -152,6 +152,7 @@ class MapDetailActivity :
                         userId!!, userLongitude, userLatitude, addressName, status
                     )
                     editor.putString("mainAddress",mainAddress)
+                    editor.putString("RoadAddress",roadAddress)
                     editor.commit()
                     MapDetailService(this).tryPostAddress(postRequest)
                 }

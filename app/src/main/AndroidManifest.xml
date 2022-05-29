@@ -70,6 +70,10 @@
         <activity android:name=".src.main.bookmark.BookMarkNoneActivity"
             android:exported="false">
         </activity>
+        <activity android:name="com.jeong.android.coupang_eatsclone.src.main.cart.CartActivity"
+            android:exported="true">
+
+        </activity>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="gv0a385a18" />

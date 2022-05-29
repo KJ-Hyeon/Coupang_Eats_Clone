@@ -1,9 +1,11 @@
 package com.jeong.android.coupang_eatsclone.src.main.home
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -89,10 +91,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     override fun onGetStoreSuccess(response: HomeStore) {
 
-//        val store_list = response.result
-//        val HomeRecyclerViewAdapter = HomeRecyclerViewAdapter(store_list)
-//        binding?.revHome?.adapter = HomeRecyclerViewAdapter
-
         if (response.result.isNotEmpty()) {
             storeList = response.result.toMutableList()
             homeRecyclerViewAdapter.addData(storeList)
@@ -100,7 +98,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     }
 
     override fun onGetStoreFailure(message: String) {
-        Toast.makeText(requireContext(),"오류: $message",Toast.LENGTH_SHORT).show()
+        Log.e(TAG, "onGetStoreFailure: $message", )
     }
 
     private fun autoScrollStart() {

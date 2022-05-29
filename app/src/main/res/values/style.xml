@@ -31,5 +31,14 @@
         <item name="tabIndicatorColor">@color/My_black</item>
         <item name="tabSelectedTextColor">@color/My_black</item>
     </style>
+
+    <style name="BlueTabLayout" parent="TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabPaddingBottom">12dp</item>
+        <item name="tabPaddingTop">12dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabIndicatorColor">@color/Bottom_Text_blue</item>
+        <item name="tabSelectedTextColor">@color/Bottom_Text_blue</item>
+    </style>
     
 </resources>

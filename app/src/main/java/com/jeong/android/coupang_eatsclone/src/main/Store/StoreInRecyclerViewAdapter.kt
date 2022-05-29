@@ -1,13 +1,16 @@
 package com.jeong.android.coupang_eatsclone.src.main.Store
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.jeong.android.coupang_eatsclone.databinding.ItemStoreMenuInBinding
-import com.jeong.android.coupang_eatsclone.databinding.ItemViewpagerAdBinding
-import com.jeong.android.coupang_eatsclone.src.main.Store.models.Review
+import com.jeong.android.coupang_eatsclone.src.main.Store.models.MenuDetail
+import com.jeong.android.coupang_eatsclone.src.main.order.OrderActivity
 
-class StoreInRecyclerViewAdapter(private val data: ArrayList<Int>) : RecyclerView.Adapter<StoreInRecyclerViewAdapter.StoreInRecyclerViewHolder>() {
+class StoreInRecyclerViewAdapter(private val data: List<MenuDetail>) :
+    RecyclerView.Adapter<StoreInRecyclerViewAdapter.StoreInRecyclerViewHolder>() {
 
     private lateinit var binding: ItemStoreMenuInBinding
 
@@ -29,9 +32,20 @@ class StoreInRecyclerViewAdapter(private val data: ArrayList<Int>) : RecyclerVie
 //        notifyDataSetChanged()
 //    }
 
-    inner class StoreInRecyclerViewHolder(private val binding: ItemStoreMenuInBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(image: Int) {
-//            binding
+    inner class StoreInRecyclerViewHolder(private val binding: ItemStoreMenuInBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: MenuDetail) {
+            binding.tvStoreMenuName.text = item.menu_name
+            Glide.with(binding.root)
+                .load(item.menu_img_url)
+                .into(binding.ivStoreMenu)
+            binding.tvStoreMenuDetail.text = item.menu_description
+            binding.tvStoreMenuPrice.text = "${item.menu_price}원"
+            binding.root.setOnClickListener {
+                val intent = Intent(binding.root.context, OrderActivity::class.java)
+                intent.putExtra("Pos",adapterPosition)
+                binding.root.context.startActivity(intent)
+            }
         }
     }
 }

@@ -13,8 +13,14 @@ class OrderActivity : BaseActivity<ActivityOrderBinding>(ActivityOrderBinding::i
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val intent = intent
+        val pos = intent.getIntExtra("Pos", -1)
+        showCustomToast("$pos")
+
         appbarView()
+
     }
+
     private fun appbarView() {
         binding.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener{ appBarLayout, verticalOffset ->
             if (abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {

@@ -39,4 +39,5 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
     fun showCustomToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+    // 최상위 액티비ㅇ ㅔ 다이얼로그 함수 만들어 놓고  카트에 값이 담기면 다이얼로그 함수 호출
 }

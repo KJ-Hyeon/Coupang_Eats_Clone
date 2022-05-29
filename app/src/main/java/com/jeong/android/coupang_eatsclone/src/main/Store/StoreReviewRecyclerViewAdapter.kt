@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jeong.android.coupang_eatsclone.databinding.ItemStoreReviewBinding
-import com.jeong.android.coupang_eatsclone.databinding.ItemViewpagerAdBinding
 import com.jeong.android.coupang_eatsclone.src.main.Store.models.Review
-import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
 
 class StoreReviewRecyclerViewAdapter(private val data: MutableList<Review>) : RecyclerView.Adapter<StoreReviewRecyclerViewAdapter.StoreReviewRecyclerViewHolder>() {
 

@@ -1,6 +1,6 @@
 package com.jeong.android.coupang_eatsclone.src.main.bookmark.models
 
-data class PostBookMarkRequest(
+data class PostBookMarkResponse(
     val code: Int,
     val isSuccess: Boolean,
     val message: String,

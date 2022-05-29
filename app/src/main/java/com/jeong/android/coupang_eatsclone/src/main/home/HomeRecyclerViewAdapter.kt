@@ -51,23 +51,30 @@ class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
 
     inner class HomeRecyclerViewHolder(private val binding: ItemHomeStoreBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Result) {
-            Log.e("TAG", "bind:${item.store_main_image_url} ")
+//            Log.e("TAG", "bind:${item.store_main_image_url} ")
             Glide.with(binding.root)
                 .load(item.store_main_image_url)
                 .into(binding.homeRevMainImage)
             binding.homeRevStoreName.text = item.store_name
-            binding.homeRevReview.text = item.rcnt.toString()
-            binding.homeRevRate.text = item.ravg.toString()
+            binding.homeRevReview.text = "(${item.rcnt})"
+            binding.homeRevRate.text = String.format("%.1f", item.ravg)
             binding.homeRevTime.text = item.delivery_time
+            if (item.start_delivery_fee == 0) {
+                binding.homeRevDelivertCost.text = "무료배달~"
+            } else {
+                binding.homeRevDelivertCost.text = "배달비${item.start_delivery_fee}원"
+            }
             if (item.is_cheetah_delivery == "N") {
                 binding.homeRevCheetah.visibility = View.GONE
+                Log.e("TAG", "bind:isCheetahN", )
             } else {
                 binding.homeRevCheetah.visibility = View.VISIBLE
+                Log.e("TAG", "bind:isCheetahY", )
             }
             if (item.take_out == "N") {
-                binding.homeRevCheetah.visibility = View.GONE
+                binding.homeRevDelivery.visibility = View.GONE
             } else {
-                binding.homeRevCheetah.visibility = View.VISIBLE
+                binding.homeRevDelivery.visibility = View.VISIBLE
             }
 
             // 클릭 이벤트

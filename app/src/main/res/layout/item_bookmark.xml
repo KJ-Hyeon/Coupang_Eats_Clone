@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_rev_bookmark"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/bg_home_rev_item1"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_rev_bookmark_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="버거킹 화성병점점"
+        app:layout_constraintTop_toTopOf="@id/iv_rev_bookmark_cheetah"
+        app:layout_constraintBottom_toBottomOf="@id/iv_rev_bookmark_cheetah"
+        app:layout_constraintStart_toEndOf="@id/iv_rev_bookmark"
+        android:layout_marginStart="12dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_rev_bookmark_cheetah"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_delivery_cheetah"
+        app:layout_constraintStart_toEndOf="@id/tv_rev_bookmark_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_rev_bookmark_star"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toStartOf="@id/tv_rev_bookmark_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_rev_bookmark_name"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_star_rate" />
+
+    <TextView
+        android:id="@+id/tv_rev_bookmark_review_avg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4.6"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/iv_rev_bookmark_star"
+        app:layout_constraintTop_toTopOf="@id/iv_rev_bookmark_star"
+        app:layout_constraintBottom_toBottomOf="@id/iv_rev_bookmark_star"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_rev_bookmark_review_cnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(2,305)"
+        android:layout_marginStart="3dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_rev_bookmark_review_avg"
+        app:layout_constraintTop_toTopOf="@id/tv_rev_bookmark_review_avg"
+        app:layout_constraintBottom_toBottomOf="@id/tv_rev_bookmark_review_avg"/>
+
+    <TextView
+        android:id="@+id/tv_rev_bookmark_delivery_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14~24분"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_rev_bookmark_name"
+        app:layout_constraintTop_toBottomOf="@id/iv_rev_bookmark_star"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/dot_divide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="•"
+        android:paddingHorizontal="3dp"
+        app:layout_constraintStart_toEndOf="@id/tv_rev_bookmark_delivery_time"
+        app:layout_constraintBottom_toBottomOf="@id/tv_rev_bookmark_delivery_time"
+        app:layout_constraintTop_toTopOf="@id/tv_rev_bookmark_delivery_time"/>
+
+    <TextView
+        android:id="@+id/tv_rev_bookmark_delivery_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="배달비 3,000원"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/dot_divide1"
+        app:layout_constraintTop_toTopOf="@id/tv_rev_bookmark_delivery_time"
+        app:layout_constraintBottom_toBottomOf="@id/tv_rev_bookmark_delivery_time" />
+
+    <TextView
+        android:id="@+id/tv_rev_bookmark_takeout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_check_delivery"
+        app:layout_constraintStart_toStartOf="@id/tv_rev_bookmark_delivery_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_rev_bookmark_delivery_time"
+        android:layout_marginTop="5dp"
+        android:text="포장 가능"
+        android:textSize="12sp"
+        style="@style/Page_Bottom_sheet_Head_Text"
+        android:textColor="@color/white"
+        android:paddingVertical="2dp"
+        android:paddingHorizontal="5dp" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_rev_bookmark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/main_grey"
+        android:layout_marginVertical="8dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
