@@ -9,6 +9,7 @@ import com.jeong.android.coupang_eatsclone.src.main.Store.models.MenuCategory
 class StoreOutRecyclerViewAdapter(private val data: MutableList<MenuCategory>) : RecyclerView.Adapter<StoreOutRecyclerViewAdapter.StoreOutRecyclerViewHolder>() {
 
     private lateinit var binding: ItemStoreMenuOutBinding
+    private var storeIndex: Int = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreOutRecyclerViewHolder {
         binding = ItemStoreMenuOutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -19,8 +20,9 @@ class StoreOutRecyclerViewAdapter(private val data: MutableList<MenuCategory>) :
         holder.bind(data[position])
     }
 
-    fun addData(item: List<MenuCategory>) {
+    fun addData(item: List<MenuCategory>, storeIndex: Int) {
         data.addAll(item)
+        this.storeIndex = storeIndex
         notifyDataSetChanged()
     }
 
@@ -31,7 +33,7 @@ class StoreOutRecyclerViewAdapter(private val data: MutableList<MenuCategory>) :
     inner class StoreOutRecyclerViewHolder(private val binding: ItemStoreMenuOutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuCategory) {
             binding.storeCategory.text = item.keywordName
-            binding.revStoreMenuContent.adapter = StoreInRecyclerViewAdapter(item.menuDetailList)
+            binding.revStoreMenuContent.adapter = StoreInRecyclerViewAdapter(item.menuDetailList,storeIndex)
         }
     }
 }

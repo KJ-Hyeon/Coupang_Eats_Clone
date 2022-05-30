@@ -1,5 +1,6 @@
 package com.jeong.android.coupang_eatsclone.src.main.home
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,7 @@ class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
 
     // 클릭이벤트
     interface OnItemClickListener {
-        fun onItemClick(v: View, Pos: Int)
+        fun onItemClick(v: View, Pos: Int, data: Result)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecyclerViewHolder {
@@ -79,7 +80,7 @@ class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
 
             // 클릭 이벤트
             binding.root.setOnClickListener {
-                listener?.onItemClick(binding.root, adapterPosition)
+                listener?.onItemClick(binding.root, adapterPosition, item)
             }
         }
     }

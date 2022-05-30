@@ -1,6 +1,7 @@
 package com.jeong.android.coupang_eatsclone.src.main.Store.models
 
 data class StoreResult(
+    val store_id: Int,
     val average: Double,
     val cnt: Int,
     val delivery_time: String,

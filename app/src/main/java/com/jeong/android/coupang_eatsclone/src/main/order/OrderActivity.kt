@@ -1,23 +1,64 @@
 package com.jeong.android.coupang_eatsclone.src.main.order
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityOrderBinding
+import com.jeong.android.coupang_eatsclone.src.main.order.models.MenuOption
+import com.jeong.android.coupang_eatsclone.src.main.order.models.OrderResponse
+import com.jeong.android.coupang_eatsclone.src.main.order.models.PostAddCartRequest
+import com.jeong.android.coupang_eatsclone.src.main.order.models.PostAddCartResponse
 import kotlin.math.abs
 
-class OrderActivity : BaseActivity<ActivityOrderBinding>(ActivityOrderBinding::inflate) {
+class OrderActivity : BaseActivity<ActivityOrderBinding>(ActivityOrderBinding::inflate),
+            OrderInterface{
+
+    private lateinit var orderRecyclerViewAdapter: OrderRecyclerViewAdapter
+    private var orderList = mutableListOf<MenuOption>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val intent = intent
-        val pos = intent.getIntExtra("Pos", -1)
-        showCustomToast("$pos")
+        val menuIndex = intent.getIntExtra("menuIndex", -1)
+        val storeIndex = intent.getIntExtra("storeIndex", -1)
+        var checkRadio = -1
 
+        OrderService(this).tryGetMenu(storeIndex, menuIndex)
         appbarView()
+
+        orderRecyclerViewAdapter = OrderRecyclerViewAdapter(orderList)
+        binding.revOptionMenu.adapter = orderRecyclerViewAdapter
+
+        binding.btnPlus.setOnClickListener {
+            val amount = binding.tvOrderMenuAmount.text.toString().toInt() + 1
+            binding.tvOrderMenuAmount.text = amount.toString()
+        }
+        binding.btnMinus.setOnClickListener {
+            val amount = binding.tvOrderMenuAmount.text.toString().toInt() - 1
+            if (amount < 0) {
+                binding.tvOrderMenuAmount.text = "0"
+            } else {
+                binding.tvOrderMenuAmount.text = amount.toString()
+            }
+        }
+        orderRecyclerViewAdapter.setOnItemClickListener(object : OrderRecyclerViewAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, Pos: Int) {
+                checkRadio = Pos
+            }
+        })
+        binding.btnAddCart.setOnClickListener {
+            val menuAmount = binding.tvOrderMenuAmount.text.toString()
+            val postAddCartRequest = PostAddCartRequest(menuAmount.toInt(),checkRadio)
+
+            OrderService(this).tryPostAddCart(postAddCartRequest,storeIndex, menuIndex)
+        }
+
 
     }
 
@@ -35,5 +76,28 @@ class OrderActivity : BaseActivity<ActivityOrderBinding>(ActivityOrderBinding::i
                 binding.icShare.setImageResource(R.drawable.ic_share_white)
             }
         })
+    }
+
+    override fun onGetDetailMenuSuccess(response: OrderResponse) {
+        Glide.with(binding.root)
+            .load(response.result.menu_img_url)
+            .into(binding.ivOrderMenu)
+        binding.tvOrderMenuName.text = response.result.menu_name
+        binding.tvAppBarMenuName.text = response.result.menu_name
+        binding.tvOrderMenuPrice.text = "${response.result.menu_price}원"
+
+        orderRecyclerViewAdapter.addData(response.result.menu_option)
+    }
+
+    override fun onGetDetailMenuFailure(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPostAddCartSuccess(response: PostAddCartResponse) {
+        showCustomToast("카트에 추가되었습니다.")
+    }
+
+    override fun onPostAddCartFailure(message: String) {
+        TODO("Not yet implemented")
     }
 }

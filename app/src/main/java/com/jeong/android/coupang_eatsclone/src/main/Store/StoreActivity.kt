@@ -27,14 +27,15 @@ class StoreActivity: BaseActivity<ActivityStoreBinding>(ActivityStoreBinding::in
     private lateinit var storeCategoryRecyclerViewAdapter: StoreCategoryRecyclerViewAdapter
     private var categoryList = mutableListOf<MenuCategory>()
     private var bookmarkCheck : Int = 0
+    private var storeId = -1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val intent = intent
-        val pos = intent.getIntExtra("Pos", -1)
-        StoreService(this).tryGetStore(pos)
+        storeId = intent.getIntExtra("storeId", -1)
+        StoreService(this).tryGetStore(storeId)
 
 
         storeReviewRecyclerViewAdapter = StoreReviewRecyclerViewAdapter(reviewList)
@@ -49,10 +50,10 @@ class StoreActivity: BaseActivity<ActivityStoreBinding>(ActivityStoreBinding::in
         binding.icHeart.setOnClickListener {
             if (bookmarkCheck == 1) {
                 binding.icHeart.setImageResource(R.drawable.ic_heart_white)
-                StoreService(this).tryDeleteBookmark(pos)
+                StoreService(this).tryDeleteBookmark(storeId)
             } else {
                 binding.icHeart.setImageResource(R.drawable.ic_heart_white_selected)
-                StoreService(this).tryPostBookmark(pos)
+                StoreService(this).tryPostBookmark(storeId)
             }
         }
 
@@ -88,7 +89,7 @@ class StoreActivity: BaseActivity<ActivityStoreBinding>(ActivityStoreBinding::in
 
         storeReviewRecyclerViewAdapter.addData(response.result.review)
         storeCategoryRecyclerViewAdapter.addData(categoryList)
-        storeOutRecyclerViewAdapter.addData(response.result.menuCategoryList)
+        storeOutRecyclerViewAdapter.addData(response.result.menuCategoryList, storeId)
 
     }
 

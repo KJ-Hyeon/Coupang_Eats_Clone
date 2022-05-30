@@ -1,11 +1,15 @@
 package com.jeong.android.coupang_eatsclone.src.main.order
 
-import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
-import com.jeong.android.coupang_eatsclone.src.main.join.models.SignUpResponse
+import com.jeong.android.coupang_eatsclone.src.main.order.models.OrderResponse
+import com.jeong.android.coupang_eatsclone.src.main.order.models.PostAddCartResponse
 
 interface OrderInterface {
 
-    fun onGetDetailMenuSuccess(response: HomeStore)
+    fun onGetDetailMenuSuccess(response: OrderResponse)
 
     fun onGetDetailMenuFailure(message: String)
+
+    fun onPostAddCartSuccess(response: PostAddCartResponse)
+
+    fun onPostAddCartFailure(message: String)
 }

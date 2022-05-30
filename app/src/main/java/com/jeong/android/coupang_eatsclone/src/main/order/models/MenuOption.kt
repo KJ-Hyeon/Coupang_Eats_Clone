@@ -1,4 +1,4 @@
-package com.jeong.android.coupang_eatsclone.src.main.order
+package com.jeong.android.coupang_eatsclone.src.main.order.models
 
 data class MenuOption(
     val option_name: String,

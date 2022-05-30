@@ -22,7 +22,7 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
     private lateinit var addressRecyclerViewAdapter: AddressRecyclerViewAdapter
     private var addressList = mutableListOf<ResultAddressList>()
 
-    var index = 0
+    var addressId = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +44,8 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
 
         addressRecyclerViewAdapter.setOnItemClickListener(object : AddressRecyclerViewAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: ResultAddressList, Pos: Int) {
-//                AddressManagerService(this).tryGetDetailAddress(Pos)
-                revClick(Pos+1)
-                index = Pos+1
+                addressId = data.address_id
+                revClick(addressId)
             }
         })
 
@@ -55,8 +54,8 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
         }
     }
 
-    fun revClick(Pos:Int) {
-        AddressManagerService(this).tryGetDetailAddress(Pos)
+    fun revClick(addressId: Int) {
+        AddressManagerService(this).tryGetDetailAddress(addressId)
     }
 
     override fun onGetAddressSuccess(response: AddressListResponse) {
@@ -80,8 +79,7 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
         intent.putExtra("Status",response.result.status)
         intent.putExtra("AddressName",response.result.address_name)
         intent.putExtra("checkDelete", true)
-        intent.putExtra("Index",index)
-        showCustomToast("$index")
+        intent.putExtra("addressId",addressId)
         startActivity(intent)
         Log.e(TAG, "onGetDetailAddressSuccess: ${response.result}", )
 

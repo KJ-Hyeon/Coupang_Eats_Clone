@@ -17,6 +17,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_order_menu"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:src="@drawable/bg_home_rev_item1"
@@ -121,7 +122,7 @@
                 android:id="@+id/tv_order_menu_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/test_order_menu_detail"
+                tools:text="@string/test_order_menu_detail"
                 app:layout_constraintStart_toStartOf="@id/tv_order_menu_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_order_menu_name"
                 android:layout_marginTop="12dp"/>
@@ -213,19 +214,29 @@
                 app:layout_constraintTop_toTopOf="@id/tv_order_menu_amount" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev_option_menu"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_order_menu_in_radio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_plus"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="20dp"/>
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.core.widget.NestedScrollView>
+    <Button
+        android:id="@+id/btn_add_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="배달 카트에 담기"
+        android:background="@color/btn_blue"
+        android:textColor="@color/My_white"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

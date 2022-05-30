@@ -1,6 +1,8 @@
 package com.jeong.android.coupang_eatsclone.src.main.Store
 
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +11,7 @@ import com.jeong.android.coupang_eatsclone.databinding.ItemStoreMenuInBinding
 import com.jeong.android.coupang_eatsclone.src.main.Store.models.MenuDetail
 import com.jeong.android.coupang_eatsclone.src.main.order.OrderActivity
 
-class StoreInRecyclerViewAdapter(private val data: List<MenuDetail>) :
+class StoreInRecyclerViewAdapter(private val data: List<MenuDetail>, val storeIndex: Int) :
     RecyclerView.Adapter<StoreInRecyclerViewAdapter.StoreInRecyclerViewHolder>() {
 
     private lateinit var binding: ItemStoreMenuInBinding
@@ -43,7 +45,10 @@ class StoreInRecyclerViewAdapter(private val data: List<MenuDetail>) :
             binding.tvStoreMenuPrice.text = "${item.menu_price}원"
             binding.root.setOnClickListener {
                 val intent = Intent(binding.root.context, OrderActivity::class.java)
-                intent.putExtra("Pos",adapterPosition)
+                intent.putExtra("menuIndex",item.type)
+                // 내일 이걸로 수정
+                Log.e(TAG, "bind: ${item.menu_id}")
+                intent.putExtra("storeIndex",storeIndex)
                 binding.root.context.startActivity(intent)
             }
         }

@@ -60,8 +60,6 @@ class AddressRecyclerViewAdapter(private val data: MutableList<ResultAddressList
             // 클릭 이벤트
             binding.root.setOnClickListener {
                 listener?.onItemClick(binding.root, item, adapterPosition)
-                Log.e(TAG, "bind: RevClick", )
-
             }
         }
     }

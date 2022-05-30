@@ -42,9 +42,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding?.revHome?.adapter = homeRecyclerViewAdapter
 
         homeRecyclerViewAdapter.setOnItemClickListener(object : HomeRecyclerViewAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, Pos: Int) {
+            override fun onItemClick(v: View, Pos: Int, item: Result) {
                 val intent = Intent(requireContext(), StoreActivity::class.java)
-                intent.putExtra("Pos",Pos+1)
+                intent.putExtra("storeId",item.store_id)
                 startActivity(intent)
             }
         })

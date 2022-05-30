@@ -85,8 +85,8 @@ class MapDetailActivity :
 
         binding.btnDelete.setOnClickListener {
             // 삭제버튼 눌렀을 경우
-            val index = intent.getIntExtra("Index", -1)
-            MapDetailService(this).tryDeleteAddress(index)
+            val addressId = intent.getIntExtra("addressId", -1)
+            MapDetailService(this).tryDeleteAddress(addressId)
         }
 
         binding.btnComplete.setOnClickListener {
@@ -94,7 +94,7 @@ class MapDetailActivity :
                 // 수정 상태
                 val detailAddress = binding.etDetailAdress.text.toString()
                 val addressGuide = binding.etGuideRoad.text.toString()
-                val index = intent.getIntExtra("Index", -1)
+                val addressId = intent.getIntExtra("addressId", -1)
                 if (binding.detailMenuEtc.tag == 6) {
                     addressName = if (binding.etAdressNickname.text.toString().isEmpty()) {
                         binding.tvAddress.text.toString()
@@ -106,7 +106,7 @@ class MapDetailActivity :
                     detailAddress, addressGuide, userId,
                     userLongitude, userLatitude, addressName, status
                 )
-                MapDetailService(this).tryPatchAddress(patchRequest, index)
+                MapDetailService(this).tryPatchAddress(patchRequest, addressId)
             } else {
                 if (binding.etDetailAdress.text.toString().trim().isEmpty()) {
                     Log.e("TAG", "onCreate:if문 진입")
