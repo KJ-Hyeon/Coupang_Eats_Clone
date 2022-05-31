@@ -6,10 +6,7 @@ import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.sSharedPreferences
 import com.jeong.android.coupang_eatsclone.config.BaseFragment
 import com.jeong.android.coupang_eatsclone.databinding.FrgmentCartDeliveryBinding
-import com.jeong.android.coupang_eatsclone.src.main.cart.models.CartMenu
-import com.jeong.android.coupang_eatsclone.src.main.cart.models.CartResponse
-import com.jeong.android.coupang_eatsclone.src.main.cart.models.PatchCartRequest
-import com.jeong.android.coupang_eatsclone.src.main.cart.models.PatchCartResponse
+import com.jeong.android.coupang_eatsclone.src.main.cart.models.*
 
 class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartDeliveryBinding::bind, R.layout.frgment_cart_delivery),
             CartInterface{
@@ -34,12 +31,14 @@ class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartD
 
         cartRecyclerViewAdapter = CartRecyclerViewAdapter(cartMenuList,requireContext())
         binding?.revCartMenu?.adapter = cartRecyclerViewAdapter
+
         cartRecyclerViewAdapter.setOnItemClickListener(object : CartRecyclerViewAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: CartMenu, amount: Int) {
                 revClick(data, amount)
             }
         })
     }
+
     fun revClick(data: CartMenu, amount: Int) {
         val patchCartRequest = PatchCartRequest(amount)
         CartService(this).tryPatchCart(patchCartRequest, storeId, data.cart_id )
@@ -63,10 +62,18 @@ class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartD
     }
 
     override fun onPatchCartSuccess(response: PatchCartResponse) {
-        TODO("Not yet implemented")
+        // 수정 성공시 텍스트 숫자 바꿈
     }
 
     override fun onPatchCartFailure(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDeleteCartSuccess(response: DeleteCartResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDeleteCartFailure(message: String) {
         TODO("Not yet implemented")
     }
 }

@@ -2,13 +2,12 @@ package com.jeong.android.coupang_eatsclone.src.main.cart
 
 import android.util.Log
 import com.jeong.android.coupang_eatsclone.config.ApplicationClass
-import com.jeong.android.coupang_eatsclone.src.main.cart.models.CartResponse
-import com.jeong.android.coupang_eatsclone.src.main.cart.models.PatchCartRequest
-import com.jeong.android.coupang_eatsclone.src.main.cart.models.PatchCartResponse
+import com.jeong.android.coupang_eatsclone.src.main.cart.models.*
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.log
 
 class CartService(val cartInterface: CartInterface) {
 
@@ -49,4 +48,23 @@ class CartService(val cartInterface: CartInterface) {
         })
     }
 
+    fun trydeleteCart(deleteCartRequest: DeleteCartRequest) {
+        val CartRetrofitInterface = ApplicationClass.sRetrofit.create(CartRetrofitInterface::class.java)
+        CartRetrofitInterface.deleteCart(deleteCartRequest).enqueue( object : Callback<DeleteCartResponse> {
+            override fun onResponse(
+                call: Call<DeleteCartResponse>,
+                response: Response<DeleteCartResponse>
+            ) {
+                if (response.isSuccessful) {
+                    cartInterface.onDeleteCartSuccess(response.body() as DeleteCartResponse)
+                } else {
+                    Log.e("TAG", "onResponse:${response.message()}", )
+                }
+            }
+
+            override fun onFailure(call: Call<DeleteCartResponse>, t: Throwable) {
+                cartInterface.onDeleteCartFailure(t.message ?: "통신오류")
+            }
+        })
+    }
 }

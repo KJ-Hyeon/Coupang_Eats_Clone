@@ -63,7 +63,7 @@ class OrderRecyclerViewAdapter(private val data: MutableList<MenuOption>) :
                             selectCheck[i] = 0
                         }
                     }
-                    listener?.onItemClick(binding.root, adapterPosition+1)
+                    listener?.onItemClick(binding.root, item.menu_option_id)
                     notifyDataSetChanged()
                 }
             }

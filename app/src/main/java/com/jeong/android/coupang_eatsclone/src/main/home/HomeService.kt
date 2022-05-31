@@ -34,7 +34,7 @@ class HomeService(val homeFragmentInterface: HomeFragmentInterface) {
                 if (response.isSuccessful) {
                     homeFragmentInterface.onGetCartSuccess(response.body() as CartResponse)
                 } else {
-                    Log.e("TAG", "onResponse:${response.message()}", )
+                    Log.e("TAG", "onResponse:${response.code()}", )
                 }
             }
 

@@ -6,5 +6,6 @@ data class CartMenu(
     val menu_option_id: Int,
     val option_name: String,
     val option_price: Int,
+    val menu_count: Int,
     val price: Int
 )

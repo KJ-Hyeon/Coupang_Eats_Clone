@@ -1,6 +1,7 @@
 package com.jeong.android.coupang_eatsclone.src.main.cart
 
 import com.jeong.android.coupang_eatsclone.src.main.cart.models.CartResponse
+import com.jeong.android.coupang_eatsclone.src.main.cart.models.DeleteCartResponse
 import com.jeong.android.coupang_eatsclone.src.main.cart.models.PatchCartResponse
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 
@@ -13,4 +14,9 @@ interface CartInterface {
     fun onPatchCartSuccess(response: PatchCartResponse)
 
     fun onPatchCartFailure(message: String)
+
+    fun onDeleteCartSuccess(response: DeleteCartResponse)
+
+    fun onDeleteCartFailure(message: String)
+
 }

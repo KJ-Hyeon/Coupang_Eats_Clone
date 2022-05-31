@@ -1,10 +1,16 @@
 package com.jeong.android.coupang_eatsclone.src.main.cart
 
+import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.DialogInterface
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.databinding.ItemCartMenuBinding
 import com.jeong.android.coupang_eatsclone.src.main.cart.models.*
 
@@ -47,11 +53,13 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
         this.listener = listener
     }
 
-    inner class CartRecyclerViewHolder(private val binding: ItemCartMenuBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class CartRecyclerViewHolder(private val binding: ItemCartMenuBinding) : RecyclerView.ViewHolder(binding.root),
+        CartInterface {
         fun bind(item: CartMenu) {
             binding.menuName.text = item.menu_name
             binding.menuOption.text = item.option_name
             binding.menuPrice.text = "${item.price}원"
+            binding.tvAmount.text = item.menu_count.toString()
             binding.tvAmount.setOnClickListener {
                 val amountDialog = CustomAmountDialog(context)
                 amountDialog.showDialog()
@@ -59,9 +67,64 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
                     override fun onClick(text: String) {
                         binding.tvAmount.text = text
                         listener?.onItemClick(binding.root,item,binding.tvAmount.text.toString().toInt())
+
                     }
                 })
             }
+            binding.icDelete.setOnClickListener {
+
+//                val builder = AlertDialog.Builder(context)
+//                    .setMessage("선택하신 메뉴를 삭제하시겠습니까?")
+//                    .setPositiveButton("삭제",
+//                    DialogInterface.OnClickListener { dialogInterface, i ->
+//                        // 삭제 버튼 눌렀을경우
+//                    })
+//                    .setNegativeButton("취소",
+//                    DialogInterface.OnClickListener { dialogInterface, i ->
+//
+//                    })
+//                builder.show()
+                val mDialog = LayoutInflater.from(context).inflate(R.layout.dialog_delete,null)
+                val builder = AlertDialog.Builder(context)
+                    .setView(mDialog)
+
+                val customDeleteDialog = builder.show()
+                val deleteBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_delete)
+                val cancleBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_cancle)
+
+                cancleBtn.setOnClickListener {
+                    customDeleteDialog.dismiss()
+                }
+                deleteBtn.setOnClickListener {
+                    val deleteCartRequest = DeleteCartRequest(item.cart_id)
+                    CartService(this).trydeleteCart(deleteCartRequest)
+                    customDeleteDialog.dismiss()
+                }
+            }
+        }
+
+        override fun onGetCartSuccess(response: CartResponse) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onGetCartFailure(message: String) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onPatchCartSuccess(response: PatchCartResponse) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onPatchCartFailure(message: String) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onDeleteCartSuccess(response: DeleteCartResponse) {
+
+        }
+
+        override fun onDeleteCartFailure(message: String) {
+            TODO("Not yet implemented")
         }
     }
 }

@@ -40,7 +40,8 @@
         <item name="tabIndicatorColor">@color/Bottom_Text_blue</item>
         <item name="tabSelectedTextColor">@color/Bottom_Text_blue</item>
     </style>
-    
+
+
 
     
 </resources>
