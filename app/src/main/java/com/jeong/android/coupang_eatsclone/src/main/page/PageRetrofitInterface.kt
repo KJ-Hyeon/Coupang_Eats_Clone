@@ -21,7 +21,7 @@ interface PageRetrofitInterface {
 //    fun getAddressList(): Call<AddressListResponse>
 
     // 상세조회
-    @GET("/users/address/{addressIdx}")
+    @GET("/users/addresses/{addressIdx}")
     fun getDetailAddress(@Path("addressIdx") addressIdx: Int): Call<DetailAddressResponse>
 
 

@@ -6,23 +6,19 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.ApplicationClass
 import com.jeong.android.coupang_eatsclone.config.BaseFragment
-import com.jeong.android.coupang_eatsclone.databinding.FragmentBookmarkBinding
 import com.jeong.android.coupang_eatsclone.databinding.FragmentHomeBinding
 import com.jeong.android.coupang_eatsclone.src.main.Store.StoreActivity
-import com.jeong.android.coupang_eatsclone.src.main.adress.AddressRecyclerViewAdapter
 import com.jeong.android.coupang_eatsclone.src.main.adress.MapSettingActivity
-import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
+import com.jeong.android.coupang_eatsclone.src.main.cart.CartActivity
+import com.jeong.android.coupang_eatsclone.src.main.cart.models.CartResponse
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
-import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
+import com.jeong.android.coupang_eatsclone.src.main.home.models.StoreRes
+import com.jeong.android.coupang_eatsclone.src.main.page.models.Ad
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
     HomeFragmentInterface {
@@ -31,18 +27,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     private val data = ArrayList<Int>()
     private var currentPos = 0
     private lateinit var homeRecyclerViewAdapter: HomeRecyclerViewAdapter
-    private var storeList = mutableListOf<Result>()
+    private var storeList = mutableListOf<StoreRes>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         HomeService(this).tryGetStore()
+        HomeService(this).tryGetCart()
 
         homeRecyclerViewAdapter = HomeRecyclerViewAdapter(storeList)
         binding?.revHome?.adapter = homeRecyclerViewAdapter
 
+
+
         homeRecyclerViewAdapter.setOnItemClickListener(object : HomeRecyclerViewAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, Pos: Int, item: Result) {
+            override fun onItemClick(v: View, Pos: Int, item: StoreRes) {
                 val intent = Intent(requireContext(), StoreActivity::class.java)
                 intent.putExtra("storeId",item.store_id)
                 startActivity(intent)
@@ -79,20 +78,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
                 }
             })
         }
+        binding?.cartBar?.setOnClickListener {
+            val intent = Intent(requireContext(), CartActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initList() {
-        data.add(R.color.My_black)
-        data.add(R.color.My_white)
-        data.add(R.color.purple_200)
-        data.add(R.color.purple_500)
-        data.add(R.color.purple_700)
+        data.add(R.drawable.bg_banner1)
+        data.add(R.drawable.bg_banner2)
+        data.add(R.drawable.bg_banner3)
+        data.add(R.drawable.bg_banner4)
+        data.add(R.drawable.bg_banner5)
     }
 
     override fun onGetStoreSuccess(response: HomeStore) {
 
-        if (response.result.isNotEmpty()) {
-            storeList = response.result.toMutableList()
+        if (response.result.storeResList.isNotEmpty()) {
+            storeList = response.result.storeResList.toMutableList()
             homeRecyclerViewAdapter.addData(storeList)
         }
     }
@@ -100,6 +103,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     override fun onGetStoreFailure(message: String) {
         Log.e(TAG, "onGetStoreFailure: $message", )
     }
+
+    override fun onGetCartSuccess(response: CartResponse) {
+        binding?.cartBar?.visibility = View.VISIBLE
+        /**
+         * 카트에 아무것도 없을때와 카트에 물건이 차 있는 경우를 구분하기 위한 방법?
+         * 카트가 비어있을때 response가 어떻게 오는지 봐야할듯...
+         */
+    }
+
+    override fun onGetCartFailure(message: String) {
+        Log.e(TAG, "onGetStoreFailure: $message", )
+    }
+
+
 
     private fun autoScrollStart() {
         myHandler.removeMessages(0) // handler를 스탑해야지 계속해서 생성되는것을 막을 수 있음
@@ -120,6 +137,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             }
         }
     }
+
+
     override fun onPause() {
         super.onPause()
         myHandler.removeMessages(0)

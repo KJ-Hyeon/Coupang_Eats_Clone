@@ -11,12 +11,12 @@ import retrofit2.http.Path
 
 interface StoreRetrofitInterface {
 
-    @GET("/store/{storeIdx}")
+    @GET("/stores/{storeIdx}")
     fun getStore(@Path("storeIdx") storeIdx: Int): Call<StoreResponse>
 
-    @POST("/users/bookmark/{storeIdx}")
+    @POST("/users/bookmarks/{storeIdx}")
     fun postBookMark(@Path("storeIdx") storeIdx: Int) : Call<PostBookMarkResponse>
 
-    @PATCH("/users/bookmark/status/{storeIdx}")
+    @PATCH("/users/bookmarks/{storeIdx}/status")
     fun deleteBookMark(@Path("storeIdx") storeIdx: Int) : Call<PatchBookMarkResponse>
 }

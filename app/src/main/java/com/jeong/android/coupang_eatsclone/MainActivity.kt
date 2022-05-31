@@ -1,8 +1,10 @@
 package com.jeong.android.coupang_eatsclone
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
@@ -60,6 +62,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     }
                     R.id.fragment_page -> {
                         val login_state = sSharedPreferences.getString("X-ACCESS-TOKEN",null)
+                        Log.e(TAG, "onCreate: $login_state", )
 //                        if(!login_state.isNullOrEmpty()) {
                         // 이 버튼을 클릭할때 마다 자동로그인 여부 SP를 검사해줘야 하나?
                         if (!login_state.isNullOrEmpty()) {

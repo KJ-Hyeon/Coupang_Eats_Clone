@@ -1,20 +1,11 @@
 package com.jeong.android.coupang_eatsclone.src.main.adress
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.jeong.android.coupang_eatsclone.databinding.ItemAddressBinding
-import com.jeong.android.coupang_eatsclone.databinding.ItemHomeStoreBinding
-import com.jeong.android.coupang_eatsclone.src.main.adress.models.AddressResponse
 import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
-import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
-import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
-import com.jeong.android.coupang_eatsclone.src.main.page.models.AddressPatchResponse
 
 class AddressRecyclerViewAdapter(private val data: MutableList<ResultAddressList>) :
     RecyclerView.Adapter<AddressRecyclerViewAdapter.AddressRecyclerViewHolder>(){

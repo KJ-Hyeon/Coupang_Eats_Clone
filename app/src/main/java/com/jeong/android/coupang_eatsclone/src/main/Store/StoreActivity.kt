@@ -1,6 +1,7 @@
 package com.jeong.android.coupang_eatsclone.src.main.Store
 
 import android.content.ContentValues.TAG
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View

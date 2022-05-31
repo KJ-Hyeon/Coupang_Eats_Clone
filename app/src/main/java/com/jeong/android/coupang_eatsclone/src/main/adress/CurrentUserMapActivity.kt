@@ -1,6 +1,7 @@
 package com.jeong.android.coupang_eatsclone.src.main.adress
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
@@ -130,6 +131,7 @@ class CurrentUserMapActivity : BaseActivity<ActivityCurrentUserMapBinding>(Activ
     override fun onGetAddresSuccess(response: KaKaoData) {
         binding.tvAddress.text = response.documents[0].road_address.building_name
         binding.tvRoadAddress.text = response.documents[0].road_address.address_name
+//        Log.e(TAG, "onGetAddresSuccess:${response.documents[0].address.}", )
     }
 
     override fun onGetAdressFailure(message: String) {

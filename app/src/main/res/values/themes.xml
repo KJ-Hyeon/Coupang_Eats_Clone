@@ -15,6 +15,9 @@
         <!-- Customize your theme here. -->
         <item name="android:textCursorDrawable">@color/Bottom_Text_blue</item>
 
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
 
     </style>
 </resources>

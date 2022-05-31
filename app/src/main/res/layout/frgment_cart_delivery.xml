@@ -69,10 +69,18 @@
                 android:layout_marginTop="8dp"
                 android:text="차이148"
                 android:textColor="@color/My_black"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tv_cart_main_address"
                 app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <ImageView
+                android:id="@+id/cart_cheetah"
+                android:layout_width="85dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_delivery_cheetah"
+                app:layout_constraintStart_toEndOf="@id/tv_cart_store_name"
+                app:layout_constraintTop_toTopOf="@id/tv_cart_store_name" />
 
             <View
                 android:id="@+id/divider2"
@@ -87,7 +95,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rev_cart_menu"
                 android:layout_width="0dp"
-                android:layout_height="160dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -119,11 +127,18 @@
                 android:background="@color/main_grey"/>
 
 
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+    <Button
+        android:id="@+id/btn_order"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="배달주문하기"
+        android:minHeight="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/My_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

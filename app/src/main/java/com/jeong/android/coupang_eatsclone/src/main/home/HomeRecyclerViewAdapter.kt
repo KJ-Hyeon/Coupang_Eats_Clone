@@ -1,19 +1,15 @@
 package com.jeong.android.coupang_eatsclone.src.main.home
 
-import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jeong.android.coupang_eatsclone.databinding.ItemHomeStoreBinding
-import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
-import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
-import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
+import com.jeong.android.coupang_eatsclone.src.main.home.models.StoreRes
 
-class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
+class HomeRecyclerViewAdapter(private val data: MutableList<StoreRes>) :
     RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeRecyclerViewHolder>() {
 
     private lateinit var binding: ItemHomeStoreBinding
@@ -23,7 +19,7 @@ class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
 
     // 클릭이벤트
     interface OnItemClickListener {
-        fun onItemClick(v: View, Pos: Int, data: Result)
+        fun onItemClick(v: View, Pos: Int, data: StoreRes)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecyclerViewHolder {
@@ -39,7 +35,7 @@ class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
         return data.size
     }
 
-    fun addData(item: List<Result>) {
+    fun addData(item: List<StoreRes>) {
         data.addAll(item)
         notifyDataSetChanged()
     }
@@ -51,7 +47,7 @@ class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
     }
 
     inner class HomeRecyclerViewHolder(private val binding: ItemHomeStoreBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Result) {
+        fun bind(item: StoreRes) {
 //            Log.e("TAG", "bind:${item.store_main_image_url} ")
             Glide.with(binding.root)
                 .load(item.store_main_image_url)
@@ -60,7 +56,7 @@ class HomeRecyclerViewAdapter(private val data: MutableList<Result>) :
             binding.homeRevReview.text = "(${item.rcnt})"
             binding.homeRevRate.text = String.format("%.1f", item.ravg)
             binding.homeRevTime.text = item.delivery_time
-            if (item.start_delivery_fee == 0) {
+            if (item.start_delivery_fee == "0") {
                 binding.homeRevDelivertCost.text = "무료배달~"
             } else {
                 binding.homeRevDelivertCost.text = "배달비${item.start_delivery_fee}원"

@@ -10,7 +10,7 @@ interface BookMarkRetrofitInterface {
 
 
 
-    @GET("/users/bookmark")
+    @GET("/users/bookmarks")
     fun getBookMark() : Call<BookMarkResponse>
 
 }

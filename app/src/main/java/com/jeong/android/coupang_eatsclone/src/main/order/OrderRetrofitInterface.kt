@@ -8,13 +8,13 @@ import retrofit2.http.*
 
 interface OrderRetrofitInterface {
 
-    @GET("/store/{storeIdx}/{menuIdx}")
+    @GET("/stores/{storeIdx}/{menuIdx}")
     fun getMenu(
         @Path("storeIdx") storeIdx: Int,
         @Path("menuIdx") menuIdx: Int,
     ): Call<OrderResponse>
 
-    @POST("/order/cart")
+    @POST("/orders/carts")
     fun postAddcart(
         @Body params: PostAddCartRequest,
         @Query("storeIdx") storeIdx: Int,

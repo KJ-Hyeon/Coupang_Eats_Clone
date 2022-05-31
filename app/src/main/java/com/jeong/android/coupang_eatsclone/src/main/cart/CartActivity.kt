@@ -11,7 +11,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
         super.onCreate(savedInstanceState)
 
         val tablayout = binding.cartTab
-        tablayout.getTabAt(0)!!.text = "배달시간"
+        tablayout.getTabAt(0)!!.text = "배달20~30분"
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fl_cart, CartDeliveryFrgment())

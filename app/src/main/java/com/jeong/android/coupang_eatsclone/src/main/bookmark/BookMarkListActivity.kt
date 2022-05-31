@@ -3,17 +3,12 @@ package com.jeong.android.coupang_eatsclone.src.main.bookmark
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
-import com.jeong.android.coupang_eatsclone.config.BaseFragment
 import com.jeong.android.coupang_eatsclone.databinding.ActivityBookmarkListBinding
 import com.jeong.android.coupang_eatsclone.src.main.Store.StoreActivity
 import com.jeong.android.coupang_eatsclone.src.main.bookmark.models.BookMarkResponse
-import com.jeong.android.coupang_eatsclone.src.main.bookmark.models.ResultBookMarkResponse
 import com.jeong.android.coupang_eatsclone.src.main.bookmark.models.ReviewSimple
 import com.jeong.android.coupang_eatsclone.src.main.bookmark.models.StoreSimple
-import com.jeong.android.coupang_eatsclone.src.main.home.HomeRecyclerViewAdapter
-import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
 
 class BookMarkListActivity : BaseActivity<ActivityBookmarkListBinding>(ActivityBookmarkListBinding::inflate),
             BookMarkInterface{

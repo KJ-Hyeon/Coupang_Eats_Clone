@@ -45,9 +45,7 @@ class StoreInRecyclerViewAdapter(private val data: List<MenuDetail>, val storeIn
             binding.tvStoreMenuPrice.text = "${item.menu_price}원"
             binding.root.setOnClickListener {
                 val intent = Intent(binding.root.context, OrderActivity::class.java)
-                intent.putExtra("menuIndex",item.type)
-                // 내일 이걸로 수정
-                Log.e(TAG, "bind: ${item.menu_id}")
+                intent.putExtra("menuIndex",item.menu_id)
                 intent.putExtra("storeIndex",storeIndex)
                 binding.root.context.startActivity(intent)
             }

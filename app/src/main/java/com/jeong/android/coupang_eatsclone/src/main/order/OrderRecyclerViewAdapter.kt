@@ -1,20 +1,10 @@
 package com.jeong.android.coupang_eatsclone.src.main.order
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.jeong.android.coupang_eatsclone.databinding.ItemHomeStoreBinding
-import com.jeong.android.coupang_eatsclone.databinding.ItemOrderFooterBinding
 import com.jeong.android.coupang_eatsclone.databinding.ItemOrderMenuInRadioBinding
-import com.jeong.android.coupang_eatsclone.src.main.adress.models.ResultAddressList
-import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
-import com.jeong.android.coupang_eatsclone.src.main.home.models.Result
 import com.jeong.android.coupang_eatsclone.src.main.order.models.MenuOption
 
 class OrderRecyclerViewAdapter(private val data: MutableList<MenuOption>) :
