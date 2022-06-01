@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="25dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_recent"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_recent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_search_keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="치킨"
+        android:textSize="13sp"
+        app:layout_constraintTop_toTopOf="@id/iv_recent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_recent"
+        app:layout_constraintStart_toEndOf="@id/iv_recent"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_recent_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="06.02"
+        android:textSize="13sp"
+        app:layout_constraintTop_toTopOf="@id/iv_recent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_recent"
+        app:layout_constraintEnd_toStartOf="@id/ic_finish"
+        android:layout_marginEnd="20dp"/>
+
+    <ImageView
+        android:id="@+id/ic_finish"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_finish_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_recent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_recent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

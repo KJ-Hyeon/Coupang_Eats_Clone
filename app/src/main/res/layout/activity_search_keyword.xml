@@ -2,17 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/ic_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:src="@drawable/ic_arrow_back"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintTop_toTopOf="@id/search_edit"
+        app:layout_constraintBottom_toBottomOf="@id/search_edit" />
 
     <EditText
         android:id="@+id/search_edit"
@@ -21,10 +22,11 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_search_edit"
-        android:elevation="10dp"
+        android:elevation="3dp"
         android:hint="검색어를 입력하세요."
-        android:paddingVertical="12dp"
+        android:paddingVertical="15dp"
         android:paddingStart="18dp"
+        android:singleLine="true"
         android:textSize="16sp"
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toStartOf="@id/ic_search"
@@ -33,12 +35,399 @@
 
     <ImageView
         android:id="@+id/ic_search"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:src="@drawable/ic_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/search_edit"
         app:layout_constraintBottom_toBottomOf="@id/search_edit"
         android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_popular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인기 검색어"
+        android:textColor="@color/My_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/ic_back"
+        app:layout_constraintTop_toBottomOf="@id/ic_back"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:id="@+id/tv_update_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22:54 업데이트"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@id/tv_popular"
+        app:layout_constraintBottom_toBottomOf="@id/tv_popular"
+        app:layout_constraintEnd_toEndOf="@id/ic_search" />
+
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ic_back"
+        app:layout_constraintEnd_toEndOf="@id/ic_search"
+        app:layout_constraintTop_toBottomOf="@id/tv_popular"
+        android:rowCount="5"
+        android:columnCount="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/Bottom_Text_blue"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_drop_up_24"
+                android:layout_marginStart="70dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_down_grey"
+                android:layout_marginStart="70dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@color/Bottom_Text_blue"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_drop_up_24"
+                android:layout_marginStart="70dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_marginStart="85dp"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textColor="@color/Bottom_Text_blue"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N"
+                android:layout_marginStart="85dp"
+                android:textColor="#F46969"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_down_grey"
+                android:layout_marginStart="70dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_down_grey"
+                android:layout_marginStart="70dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_marginStart="85dp"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_drop_up_24"
+                android:layout_marginStart="70dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/My_black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_columnWeight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_popular_text10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="떡볶이"
+                android:textColor="@color/My_black"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N"
+                android:layout_marginStart="75dp"
+                android:textColor="#F46969"/>
+
+        </LinearLayout>
+
+    </GridLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/grid"
+        android:background="@color/main_grey"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_recent_keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="최근 검색어"
+        android:textColor="@color/My_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/ic_back"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/tv_delete_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전체삭제"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@id/tv_recent_keyword"
+        app:layout_constraintBottom_toBottomOf="@id/tv_recent_keyword"
+        app:layout_constraintEnd_toEndOf="@id/ic_search"
+        android:visibility="invisible"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rev_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_recent_keyword"
+        app:layout_constraintEnd_toEndOf="@id/ic_search"
+        app:layout_constraintTop_toBottomOf="@id/tv_recent_keyword"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/item_recent_search"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
