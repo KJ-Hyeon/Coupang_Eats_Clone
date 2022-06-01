@@ -41,6 +41,7 @@
         <entry key="app/src/main/res/layout/activity_bookmark_list.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/activity_bookmark_none.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/activity_cart.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/activity_cart_empty.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_current_user_map.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_find_password.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_first_intro.xml" value="0.28125" />
@@ -52,6 +53,7 @@
         <entry key="app/src/main/res/layout/activity_map_detail.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_map_setting.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_order.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_search_keyword.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/activity_store.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_amount.xml" value="0.265625" />
@@ -62,6 +64,7 @@
         <entry key="app/src/main/res/layout/fragment_bookmark.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_bookmark_list.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/fragment_bookmark_none.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_cart_delivery.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_order.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_order_list.xml" value="0.21422101449275363" />
@@ -71,6 +74,7 @@
         <entry key="app/src/main/res/layout/fragment_page.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
         <entry key="app/src/main/res/layout/frgment_cart_delivery.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/frgment_cart_empty.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/item_address.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/item_bookmark.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_cart_menu.xml" value="0.25" />

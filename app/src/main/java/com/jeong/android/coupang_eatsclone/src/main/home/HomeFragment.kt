@@ -33,7 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         super.onViewCreated(view, savedInstanceState)
 
         HomeService(this).tryGetStore()
-        HomeService(this).tryGetCart()
+//        HomeService(this).tryGetCart()
 
         homeRecyclerViewAdapter = HomeRecyclerViewAdapter(storeList)
         binding?.revHome?.adapter = homeRecyclerViewAdapter
@@ -106,10 +106,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     override fun onGetCartSuccess(response: CartResponse) {
         binding?.cartBar?.visibility = View.VISIBLE
-        /**
-         * 카트에 아무것도 없을때와 카트에 물건이 차 있는 경우를 구분하기 위한 방법?
-         * 카트가 비어있을때 response가 어떻게 오는지 봐야할듯...
-         */
+        var menu_count = 0
+        var menu_price = 0
+        for (i in response.result.cartMenu) {
+            menu_price += i.price
+            menu_count++
+        }
+        binding?.tvCartAmount?.text = menu_count.toString()
+        binding?.tvCartPrice?.text = "${menu_price}원"
+    }
+
+    override fun onGetCartNull() {
+        binding?.cartBar?.visibility = View.INVISIBLE
     }
 
     override fun onGetCartFailure(message: String) {
@@ -148,5 +156,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         super.onResume()
         val mainAddress = ApplicationClass.sSharedPreferences.getString("mainAddress","주소를 설정해주세요")
         binding?.tvAdress?.text = mainAddress
+    }
+
+    override fun onStart() {
+        super.onStart()
+        HomeService(this).tryGetCart()
+        Log.e(TAG, "onStart: Resume Home호출", )
     }
 }

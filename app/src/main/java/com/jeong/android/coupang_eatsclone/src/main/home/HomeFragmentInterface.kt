@@ -11,6 +11,8 @@ interface HomeFragmentInterface {
 
     fun onGetCartSuccess(response: CartResponse)
 
+    fun onGetCartNull()
+
     fun onGetCartFailure(message: String)
 
 

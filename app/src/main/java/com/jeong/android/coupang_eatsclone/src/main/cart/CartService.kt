@@ -18,8 +18,9 @@ class CartService(val cartInterface: CartInterface) {
                 if (response.isSuccessful) {
                     cartInterface.onGetCartSuccess(response.body() as CartResponse)
                 } else {
-                    Log.e("TAG", "onResponse:${response.body()}", )
+                    cartInterface.onGetCartNull()
                 }
+
             }
 
             override fun onFailure(call: Call<CartResponse>, t: Throwable) {

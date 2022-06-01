@@ -1,14 +1,18 @@
 package com.jeong.android.coupang_eatsclone.src.main.cart
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import com.jeong.android.coupang_eatsclone.R
 import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.sSharedPreferences
 import com.jeong.android.coupang_eatsclone.config.BaseFragment
-import com.jeong.android.coupang_eatsclone.databinding.FrgmentCartDeliveryBinding
+import com.jeong.android.coupang_eatsclone.databinding.FragmentCartDeliveryBinding
 import com.jeong.android.coupang_eatsclone.src.main.cart.models.*
 
-class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartDeliveryBinding::bind, R.layout.frgment_cart_delivery),
+class CartDeliveryFrgment :BaseFragment<FragmentCartDeliveryBinding>(FragmentCartDeliveryBinding::bind, R.layout.fragment_cart_delivery),
             CartInterface{
 
     private lateinit var cartRecyclerViewAdapter: CartRecyclerViewAdapter
@@ -36,13 +40,33 @@ class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartD
             override fun onItemClick(v: View, data: CartMenu, amount: Int) {
                 revClick(data, amount)
             }
+            override fun onDeletClick(data: CartMenu) {
+                val mDialog = LayoutInflater.from(context).inflate(R.layout.dialog_delete,null)
+                val builder = AlertDialog.Builder(context)
+                    .setView(mDialog)
+
+                val customDeleteDialog = builder.show()
+                val deleteBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_delete)
+                val cancleBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_cancle)
+
+                cancleBtn.setOnClickListener {
+                    customDeleteDialog.dismiss()
+                }
+                deleteBtn.setOnClickListener {
+                    revDeleteClick(data)
+                    customDeleteDialog.dismiss()
+                }
+            }
         })
     }
 
     fun revClick(data: CartMenu, amount: Int) {
         val patchCartRequest = PatchCartRequest(amount)
         CartService(this).tryPatchCart(patchCartRequest, storeId, data.cart_id )
-
+    }
+    fun revDeleteClick(data: CartMenu) {
+        val deleteCartRequest = DeleteCartRequest(data.cart_id)
+        CartService(this).trydeleteCart(deleteCartRequest)
     }
 
     override fun onGetCartSuccess(response: CartResponse) {
@@ -53,8 +77,15 @@ class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartD
             binding?.cartCheetah?.visibility = View.VISIBLE
         }
 //        binding?.btnOrder?.text = response.result.
+        cartRecyclerViewAdapter.clearData()
         cartRecyclerViewAdapter.addData(response.result.cartMenu)
         storeId = response.result.store_id
+    }
+
+    override fun onGetCartNull() {
+        cartRecyclerViewAdapter.clearData()
+        val intent = Intent(requireContext(), CartEmptyActivity::class.java)
+        requireContext().startActivity(intent)
     }
 
     override fun onGetCartFailure(message: String) {
@@ -62,7 +93,8 @@ class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartD
     }
 
     override fun onPatchCartSuccess(response: PatchCartResponse) {
-        // 수정 성공시 텍스트 숫자 바꿈
+        cartRecyclerViewAdapter.clearData()
+        CartService(this).tryGetCart()
     }
 
     override fun onPatchCartFailure(message: String) {
@@ -70,7 +102,7 @@ class CartDeliveryFrgment :BaseFragment<FrgmentCartDeliveryBinding>(FrgmentCartD
     }
 
     override fun onDeleteCartSuccess(response: DeleteCartResponse) {
-        TODO("Not yet implemented")
+        CartService(this).tryGetCart()
     }
 
     override fun onDeleteCartFailure(message: String) {

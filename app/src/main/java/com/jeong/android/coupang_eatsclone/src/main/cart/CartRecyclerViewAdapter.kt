@@ -18,7 +18,7 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
     RecyclerView.Adapter<CartRecyclerViewAdapter.CartRecyclerViewHolder>(){
 
     private lateinit var binding: ItemCartMenuBinding
-    private var storeId: Int = -1
+//    private var storeId: Int = -1
 
     // 클릭이벤트
     private var listener: OnItemClickListener? = null
@@ -26,6 +26,7 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
     // 클릭이벤트
     interface OnItemClickListener {
         fun onItemClick(v: View,data: CartMenu, amount:Int)
+        fun onDeletClick(data: CartMenu)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartRecyclerViewHolder {
@@ -43,7 +44,11 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
 
     fun addData(item: List<CartMenu>) {
         data.addAll(item)
-        this.storeId = storeId
+//        this.storeId = storeId
+        notifyDataSetChanged()
+    }
+    fun clearData() {
+        data.clear()
         notifyDataSetChanged()
     }
 
@@ -53,8 +58,7 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
         this.listener = listener
     }
 
-    inner class CartRecyclerViewHolder(private val binding: ItemCartMenuBinding) : RecyclerView.ViewHolder(binding.root),
-        CartInterface {
+    inner class CartRecyclerViewHolder(private val binding: ItemCartMenuBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: CartMenu) {
             binding.menuName.text = item.menu_name
             binding.menuOption.text = item.option_name
@@ -72,7 +76,7 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
                 })
             }
             binding.icDelete.setOnClickListener {
-
+                listener?.onDeletClick(item)
 //                val builder = AlertDialog.Builder(context)
 //                    .setMessage("선택하신 메뉴를 삭제하시겠습니까?")
 //                    .setPositiveButton("삭제",
@@ -84,47 +88,54 @@ class CartRecyclerViewAdapter(private val data: MutableList<CartMenu>, val conte
 //
 //                    })
 //                builder.show()
-                val mDialog = LayoutInflater.from(context).inflate(R.layout.dialog_delete,null)
-                val builder = AlertDialog.Builder(context)
-                    .setView(mDialog)
 
-                val customDeleteDialog = builder.show()
-                val deleteBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_delete)
-                val cancleBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_cancle)
 
-                cancleBtn.setOnClickListener {
-                    customDeleteDialog.dismiss()
-                }
-                deleteBtn.setOnClickListener {
-                    val deleteCartRequest = DeleteCartRequest(item.cart_id)
-                    CartService(this).trydeleteCart(deleteCartRequest)
-                    customDeleteDialog.dismiss()
+//                val mDialog = LayoutInflater.from(context).inflate(R.layout.dialog_delete,null)
+//                val builder = AlertDialog.Builder(context)
+//                    .setView(mDialog)
+//
+//                val customDeleteDialog = builder.show()
+//                val deleteBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_delete)
+//                val cancleBtn = customDeleteDialog.findViewById<TextView>(R.id.btn_cancle)
+//
+//                cancleBtn.setOnClickListener {
+//                    customDeleteDialog.dismiss()
+//                }
+//                deleteBtn.setOnClickListener {
+//                    val deleteCartRequest = DeleteCartRequest(item.cart_id)
+//                    CartService(this).trydeleteCart(deleteCartRequest)
+//                    customDeleteDialog.dismiss()
                 }
             }
         }
 
-        override fun onGetCartSuccess(response: CartResponse) {
-            TODO("Not yet implemented")
-        }
-
-        override fun onGetCartFailure(message: String) {
-            TODO("Not yet implemented")
-        }
-
-        override fun onPatchCartSuccess(response: PatchCartResponse) {
-            TODO("Not yet implemented")
-        }
-
-        override fun onPatchCartFailure(message: String) {
-            TODO("Not yet implemented")
-        }
-
-        override fun onDeleteCartSuccess(response: DeleteCartResponse) {
-
-        }
-
-        override fun onDeleteCartFailure(message: String) {
-            TODO("Not yet implemented")
-        }
+//        override fun onGetCartSuccess(response: CartResponse) {
+//            clearData()
+//            addData(response.result.cartMenu)
+//        }
+//
+//        override fun onGetCartNull() {
+//            clearData()
+//            // 카트가 비었다고 출력 (빈 카트 프래그먼트)
+//        }
+//
+//        override fun onGetCartFailure(message: String) {
+//            TODO("Not yet implemented")
+//        }
+//
+//        override fun onPatchCartSuccess(response: PatchCartResponse) {
+//            TODO("Not yet implemented")
+//        }
+//
+//        override fun onPatchCartFailure(message: String) {
+//            TODO("Not yet implemented")
+//        }
+//
+//        override fun onDeleteCartSuccess(response: DeleteCartResponse) {
+//            CartService(this).tryGetCart()
+//        }
+//
+//        override fun onDeleteCartFailure(message: String) {
+//            TODO("Not yet implemented")
+//        }
     }
-}

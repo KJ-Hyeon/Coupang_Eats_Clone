@@ -11,6 +11,8 @@ interface CartInterface {
 
     fun onGetCartFailure(message: String)
 
+    fun onGetCartNull()
+
     fun onPatchCartSuccess(response: PatchCartResponse)
 
     fun onPatchCartFailure(message: String)

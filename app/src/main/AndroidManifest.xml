@@ -27,11 +27,7 @@
 
         <activity android:name=".src.splash.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".src.main.join.JoinActivity"
             android:exported="false">
@@ -72,6 +68,17 @@
         </activity>
         <activity android:name="com.jeong.android.coupang_eatsclone.src.main.cart.CartActivity"
             android:exported="true">
+        </activity>
+        <activity android:name=".src.main.cart.CartEmptyActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".src.main.search.SearchKeywordActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
