@@ -246,6 +246,7 @@ class MapDetailActivity :
 
     override fun onDeleteAddressSuccess(response: AddressPatchResponse) {
         showCustomToast("삭제되었습니다.")
+        finish()
     }
 
     override fun onDeleteAdressFailure(message: String) {

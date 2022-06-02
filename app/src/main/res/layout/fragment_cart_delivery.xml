@@ -130,15 +130,19 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-    <Button
+
+    <TextView
         android:id="@+id/btn_order"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:text="배달주문하기"
-        android:minHeight="1dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/btn_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/My_white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

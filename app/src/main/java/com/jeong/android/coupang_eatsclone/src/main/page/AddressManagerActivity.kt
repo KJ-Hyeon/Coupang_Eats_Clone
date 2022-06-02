@@ -86,6 +86,12 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
     }
 
     override fun onGetDetailAddressFailure(message: String) {
-        TODO("Not yet implemented")
+        showCustomToast(message)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        addressRecyclerViewAdapter.clearData()
+        AddressManagerService(this).tryGetAddressList()
     }
 }

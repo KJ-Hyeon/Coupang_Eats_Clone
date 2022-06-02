@@ -71,6 +71,11 @@ class CartDeliveryFrgment :BaseFragment<FragmentCartDeliveryBinding>(FragmentCar
 
     override fun onGetCartSuccess(response: CartResponse) {
         binding?.tvCartStoreName?.text = response.result.store_name
+        var menuPrice = 0
+        for (i in response.result.cartMenu) {
+            menuPrice += i.price
+        }
+        binding?.btnOrder?.text = "배달주문 ${menuPrice}원 결제하기"
         if (response.result.is_cheetah_delivery == "N") {
             binding?.cartCheetah?.visibility = View.INVISIBLE
         } else {
@@ -86,6 +91,11 @@ class CartDeliveryFrgment :BaseFragment<FragmentCartDeliveryBinding>(FragmentCar
         cartRecyclerViewAdapter.clearData()
         val intent = Intent(requireContext(), CartEmptyActivity::class.java)
         requireContext().startActivity(intent)
+//        activity?.supportFragmentManager
+//            ?.beginTransaction()
+//            ?.remove(this)
+//            ?.commit()
+        activity?.finish()
     }
 
     override fun onGetCartFailure(message: String) {

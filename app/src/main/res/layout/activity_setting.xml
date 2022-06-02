@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="20dp"
+    android:paddingHorizontal="20dp">
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/Page_Bottom_sheet_Head_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="설정"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/ic_back"
+        app:layout_constraintStart_toEndOf="@id/ic_back"
+        app:layout_constraintTop_toTopOf="@id/ic_back" />
+
+    <TextView
+        android:id="@+id/tv_setting1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ic_back"
+        app:layout_constraintTop_toBottomOf="@id/ic_back"
+        android:textSize="18sp"
+        android:textColor="@color/My_black"
+        android:layout_marginTop="35dp"
+        android:text="주문 현황 알림" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:track="@drawable/switch_track_selector"
+        android:thumb="@drawable/switch_thumb_selector"
+        app:layout_constraintTop_toTopOf="@id/tv_setting1"
+        app:layout_constraintBottom_toBottomOf="@id/tv_setting1"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_setting2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ic_back"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting1"
+        android:textSize="18sp"
+        android:textColor="@color/My_black"
+        android:layout_marginTop="40dp"
+        android:text="쿠폰&amp;혜택 정보 알림" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:track="@drawable/switch_track_selector"
+        android:thumb="@drawable/switch_thumb_selector"
+        app:layout_constraintTop_toTopOf="@id/tv_setting2"
+        app:layout_constraintBottom_toBottomOf="@id/tv_setting2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_setting3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ic_back"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting2"
+        android:textSize="18sp"
+        android:textColor="@color/My_black"
+        android:layout_marginTop="45dp"
+        android:text="언어" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_setting3"
+        app:layout_constraintBottom_toBottomOf="@id/tv_setting3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="15sp"
+        android:textColor="@color/Bottom_Text_blue"
+        android:text="시스템 기본설정 >"/>
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ic_back"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting3"
+        android:textSize="18sp"
+        android:textColor="@color/My_black"
+        android:layout_marginTop="45dp"
+        android:text="로그아웃" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

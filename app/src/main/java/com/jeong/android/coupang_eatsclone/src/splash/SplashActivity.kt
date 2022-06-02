@@ -14,10 +14,10 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>(ActivitySplashBinding:
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val first = ApplicationClass.sSharedPreferences.getBoolean("isFirst",false)
+        val first = ApplicationClass.sSharedPreferences.getBoolean("First",false)
         if (first == false){
             val edit = ApplicationClass.sSharedPreferences.edit()
-            edit.putBoolean("isFirst", true)
+            edit.putBoolean("First", true)
             edit.commit()
             val intent = Intent(this,FirstIntroActivity::class.java)
             startActivity(intent)

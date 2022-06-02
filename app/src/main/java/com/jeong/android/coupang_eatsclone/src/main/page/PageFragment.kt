@@ -40,6 +40,14 @@ class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind
             val intent = Intent(requireContext(),AddressManagerActivity::class.java)
             startActivity(intent)
         }
+        binding?.tvSetting?.setOnClickListener {
+            val intent = Intent(requireContext(), SettingActivity::class.java)
+            startActivity(intent)
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.remove(this)
+                ?.commit()
+        }
 
         binding?.pageAdBanner?.apply {
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
@@ -81,7 +89,12 @@ class PageFragment : BaseFragment<FragmentPageBinding>(FragmentPageBinding::bind
     }
 
     override fun onGetuserSuccess(response: UserResponse) {
-        binding?.tvUserName?.text = response.result.user_name
+        val userName = response.result.user_name
+        var userNameFirst = userName.substring(0 until 1)
+        for (i in userName.indices-1) {
+            userNameFirst += "*"
+        }
+        binding?.tvUserName?.text = userNameFirst
         val phoneNumber = response.result.user_phone
         binding?.tvPhoneFront?.text = phoneNumber.substring(0 until 3)
         binding?.tvPhoneEnd?.text = phoneNumber.subSequence(7 until 11)

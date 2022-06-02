@@ -131,7 +131,6 @@ class CurrentUserMapActivity : BaseActivity<ActivityCurrentUserMapBinding>(Activ
     override fun onGetAddresSuccess(response: KaKaoData) {
         binding.tvAddress.text = response.documents[0].road_address.building_name
         binding.tvRoadAddress.text = response.documents[0].road_address.address_name
-//        Log.e(TAG, "onGetAddresSuccess:${response.documents[0].address.}", )
     }
 
     override fun onGetAdressFailure(message: String) {

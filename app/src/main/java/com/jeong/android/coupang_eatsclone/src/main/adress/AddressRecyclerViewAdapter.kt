@@ -38,6 +38,11 @@ class AddressRecyclerViewAdapter(private val data: MutableList<ResultAddressList
         notifyDataSetChanged()
     }
 
+    fun clearData() {
+        data.clear()
+        notifyDataSetChanged()
+    }
+
     // 클릭이벤트
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.listener = listener
