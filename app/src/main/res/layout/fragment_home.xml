@@ -175,6 +175,7 @@
                     android:id="@+id/Lin_category"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginVertical="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -529,8 +530,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_category"
-                android:background="#C1C1C1"
-                android:layout_marginTop="8dp" />
+                android:background="@color/main_grey"
+                android:layout_marginTop="6dp" />
 
             <TextView
                 android:id="@+id/tv_choice_store"
@@ -542,8 +543,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="@dimen/home_margin"
                 android:textSize="16sp"
-                android:textColor="@color/My_black"
-                android:textStyle="bold" />
+                android:textColor="@color/My_black" />
 
             <HorizontalScrollView
                 android:id="@+id/home_sort"
@@ -559,6 +559,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/My_white"
+                    android:gravity="center_vertical"
                     android:tag="sticky"
                     android:paddingVertical="12dp"
                     android:orientation="horizontal">
@@ -566,95 +567,92 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
                         android:background="@drawable/right_stroke">
                         <ImageView
                             android:layout_width="100dp"
-                            android:layout_height="35dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/bg_tag"
                             android:layout_marginEnd="10dp" />
                     </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatButton
+                    <TextView
                         android:id="@+id/btn_recommend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/home_margin"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/bg_sort_non_selected"
                         android:drawableEnd="@drawable/ic_sort_arrow"
                         android:paddingHorizontal="8dp"
                         android:paddingStart="12dp"
                         android:paddingVertical="2dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
                         android:text="추천순"
+                        android:gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
-                    <androidx.appcompat.widget.AppCompatButton
+
+                    <TextView
                         android:id="@+id/btn_delivery_cost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/home_margin"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/bg_sort_non_selected"
                         android:drawableEnd="@drawable/ic_sort_arrow"
                         android:paddingHorizontal="8dp"
                         android:paddingStart="12dp"
                         android:paddingVertical="2dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
+                        android:gravity="center_vertical"
                         android:text="배달비"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
-                    <androidx.appcompat.widget.AppCompatButton
+
+                    <TextView
                         android:id="@+id/btn_min_cost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/home_margin"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/bg_sort_non_selected"
                         android:drawableEnd="@drawable/ic_sort_arrow"
                         android:paddingHorizontal="8dp"
                         android:paddingStart="12dp"
                         android:paddingVertical="2dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
+                        android:gravity="center_vertical"
                         android:text="최소주문"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
-                    <androidx.appcompat.widget.AppCompatButton
+                    <TextView
                         android:id="@+id/btn_pack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/home_margin"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/bg_sort_non_selected"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="6dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
+                        android:gravity="center_vertical"
                         android:text="포장"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
-                    <androidx.appcompat.widget.AppCompatButton
+                    <TextView
                         android:id="@+id/btn_discount_coupon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/home_margin"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/bg_sort_non_selected"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="6dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
+                        android:gravity="center_vertical"
                         android:text="할인쿠폰"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
-                    <androidx.appcompat.widget.AppCompatButton
+                    <TextView
                         android:id="@+id/btn_drink"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/home_margin"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/bg_sort_non_selected"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="6dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
+                        android:gravity="center_vertical"
                         android:text="주류"
                         android:textColor="@color/black"
                         android:textSize="13sp" />

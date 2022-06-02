@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1093633983936",
+    "project_id": "coupangeatsmessage",
+    "storage_bucket": "coupangeatsmessage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093633983936:android:9cfe2d98071fa08498f425",
+        "android_client_info": {
+          "package_name": "com.jeong.android.coupang_eatsclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093633983936-1985o5a78ga7m4l3gcdcmu3na4f6slhn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfPFSLGtknUIRJZfCvk4cY_MUJhpCTAis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093633983936-1985o5a78ga7m4l3gcdcmu3na4f6slhn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

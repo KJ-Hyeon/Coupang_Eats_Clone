@@ -79,6 +79,12 @@
         <activity android:name=".src.main.search.SearchKeywordActivity"
             android:exported="true">
         </activity>
+        <service android:name=".utill.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="gv0a385a18" />

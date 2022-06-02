@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="스페셜오퍼"
-        android:textColor="@color/My_black"
+        android:textColor="#5E6A77"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="16sp" />

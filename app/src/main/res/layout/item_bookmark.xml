@@ -22,9 +22,8 @@
         app:layout_constraintBottom_toBottomOf="@id/iv_rev_bookmark_cheetah"
         app:layout_constraintStart_toEndOf="@id/iv_rev_bookmark"
         android:layout_marginStart="12dp"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textColor="@color/black" />
 
     <ImageView
         android:id="@+id/iv_rev_bookmark_cheetah"
@@ -67,18 +66,39 @@
         app:layout_constraintBottom_toBottomOf="@id/tv_rev_bookmark_review_avg"/>
 
     <TextView
-        android:id="@+id/tv_rev_bookmark_delivery_time"
+        android:id="@+id/tv_rev_bookmark_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="14~24분"
+        android:text="0.5km"
+        android:paddingHorizontal="3dp"
+        android:textSize="11sp"
         android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@id/tv_rev_bookmark_name"
+        app:layout_constraintStart_toStartOf="@id/iv_rev_bookmark_star"
         app:layout_constraintTop_toBottomOf="@id/iv_rev_bookmark_star"
         android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/dot_divide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="•"
+        android:paddingHorizontal="3dp"
+        app:layout_constraintStart_toEndOf="@id/tv_rev_bookmark_distance"
+        app:layout_constraintTop_toBottomOf="@id/iv_rev_bookmark_star"
+        app:layout_constraintTop_toTopOf="@id/tv_rev_bookmark_distance"/>
+
+    <TextView
+        android:id="@+id/tv_rev_bookmark_delivery_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14~24분"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/dot_divide1"
+        app:layout_constraintTop_toTopOf="@id/tv_rev_bookmark_distance" />
+
+    <TextView
+        android:id="@+id/dot_divide2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="•"
@@ -93,8 +113,8 @@
         android:layout_height="wrap_content"
         android:text="배달비 3,000원"
         android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/dot_divide1"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/dot_divide2"
         app:layout_constraintTop_toTopOf="@id/tv_rev_bookmark_delivery_time"
         app:layout_constraintBottom_toBottomOf="@id/tv_rev_bookmark_delivery_time" />
 
@@ -103,15 +123,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_check_delivery"
-        app:layout_constraintStart_toStartOf="@id/tv_rev_bookmark_delivery_time"
+        app:layout_constraintStart_toStartOf="@id/tv_rev_bookmark_distance"
         app:layout_constraintTop_toBottomOf="@id/tv_rev_bookmark_delivery_time"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="7dp"
         android:text="포장 가능"
         android:textSize="12sp"
         style="@style/Page_Bottom_sheet_Head_Text"
         android:textColor="@color/white"
         android:paddingVertical="2dp"
-        android:paddingHorizontal="5dp" />
+        android:paddingHorizontal="4dp" />
 
     <View
         android:layout_width="0dp"
@@ -121,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@id/iv_rev_bookmark"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/main_grey"
-        android:layout_marginVertical="8dp" />
+        android:layout_marginVertical="15dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

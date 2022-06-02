@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/bg_detail_menu.xml" value="0.189" />
         <entry key="app/src/main/res/drawable/bg_detail_menu_non_selected.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/bg_location_btn.xml" value="0.189" />
+        <entry key="app/src/main/res/drawable/bg_map_text.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/bg_round_grey.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/bg_search_edit.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/bg_sort_non_selected.xml" value="0.127" />
@@ -57,7 +58,7 @@
         <entry key="app/src/main/res/layout/activity_order.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_search_keyword.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />
-        <entry key="app/src/main/res/layout/activity_store.xml" value="0.5928985595703125" />
+        <entry key="app/src/main/res/layout/activity_store.xml" value="0.375" />
         <entry key="app/src/main/res/layout/dialog_amount.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/dialog_cart.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/dialog_delete.xml" value="0.28125" />
@@ -67,7 +68,7 @@
         <entry key="app/src/main/res/layout/fragment_bookmark_list.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/fragment_bookmark_none.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_cart_delivery.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20551005212211468" />
         <entry key="app/src/main/res/layout/fragment_order.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_order_list.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/fragment_order_list_none.xml" value="0.28229166666666666" />

@@ -8,8 +8,6 @@ import retrofit2.http.*
 
 interface BookMarkRetrofitInterface {
 
-
-
     @GET("/users/bookmarks")
     fun getBookMark() : Call<BookMarkResponse>
 
