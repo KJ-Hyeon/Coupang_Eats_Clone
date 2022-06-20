@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.decimal
 import com.jeong.android.coupang_eatsclone.databinding.ItemStoreMenuInBinding
 import com.jeong.android.coupang_eatsclone.src.main.Store.models.MenuDetail
 import com.jeong.android.coupang_eatsclone.src.main.order.OrderActivity
@@ -42,7 +43,7 @@ class StoreInRecyclerViewAdapter(private val data: List<MenuDetail>, val storeIn
                 .load(item.menu_img_url)
                 .into(binding.ivStoreMenu)
             binding.tvStoreMenuDetail.text = item.menu_description
-            binding.tvStoreMenuPrice.text = "${item.menu_price}원"
+            binding.tvStoreMenuPrice.text = "${decimal.format(item.menu_price)}원"
             binding.root.setOnClickListener {
                 val intent = Intent(binding.root.context, OrderActivity::class.java)
                 intent.putExtra("menuIndex",item.menu_id)

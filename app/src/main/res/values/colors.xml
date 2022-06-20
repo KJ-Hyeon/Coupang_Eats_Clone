@@ -19,6 +19,7 @@
     <color name="main_grey">#F4F4F6</color>
     <color name="bg_amount_dialog">#F4F4F6</color>
     <color name="main_text_color">#FF7E8C9A</color>
+    <color name="text_black">#2E2E2E</color>
 
     <color name="star_yellow">#FFC000</color>
     <color name="star_grey">#E6E6E6</color>

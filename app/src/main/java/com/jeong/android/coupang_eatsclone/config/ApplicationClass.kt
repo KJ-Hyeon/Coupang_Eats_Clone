@@ -6,6 +6,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.text.DecimalFormat
 import java.util.concurrent.TimeUnit
 
 class ApplicationClass: Application() {
@@ -27,6 +28,9 @@ class ApplicationClass: Application() {
 
         // Retrofit 인스턴스, 앱 실행시 한번만 생성하여 사용합니다.
         lateinit var sRetrofit: Retrofit
+
+        // 앱의 모든 숫자의 천 단위 콤마를 찍기 위해서 사용한다.
+        lateinit var decimal : DecimalFormat
     }
 
     // 앱이 처음 생성되는 순간, SP를 새로 만들어주고, 레트로핏 인스턴스를 생성합니다.
@@ -36,6 +40,8 @@ class ApplicationClass: Application() {
             applicationContext.getSharedPreferences("SOFTSQUARED_TEMPLATE_APP", MODE_PRIVATE)
         // 레트로핏 인스턴스 생성
         initRetrofitInstance()
+        // 앱의 모든 숫자의 천 단위 콤마를 찍기 위해서 사용한다.
+        decimal = DecimalFormat("#,###")
     }
 
     // 레트로핏 인스턴스를 생성하고, 레트로핏에 각종 설정값들을 지정해줍니다.

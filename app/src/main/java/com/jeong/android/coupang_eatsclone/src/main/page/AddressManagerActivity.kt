@@ -27,7 +27,6 @@ class AddressManagerActivity : BaseActivity<ActivityAddressManagerBinding>(Activ
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         AddressManagerService(this).tryGetAddressList()
         showLoadingDialog(this)
         val jwtToken: String? = ApplicationClass.sSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, null)

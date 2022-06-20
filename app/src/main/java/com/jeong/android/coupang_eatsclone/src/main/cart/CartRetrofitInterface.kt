@@ -3,10 +3,7 @@ package com.jeong.android.coupang_eatsclone.src.main.cart
 import com.jeong.android.coupang_eatsclone.src.main.cart.models.*
 import com.jeong.android.coupang_eatsclone.src.main.home.models.HomeStore
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.PATCH
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface CartRetrofitInterface {
 
@@ -24,4 +21,10 @@ interface CartRetrofitInterface {
     fun deleteCart(
         @Body params: DeleteCartRequest
     ) : Call<DeleteCartResponse>
+
+    @POST("/orders")
+    fun postCart(
+        @Body params : PostCartRequest,
+        @Query("cartList") cartList : List<Int>
+    ) : Call<PostCartResponse>
 }

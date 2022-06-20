@@ -19,5 +19,13 @@
     <string name="test_order_menu_detail">(시그니처메뉴)베이컨과 버섯이 들어가 느낌함을 잡아줄 매콤한 크림소스파스타</string>
     <string name="book_mark_content1">즐겨찾는 맛집이 없습니다.</string>
     <string name="book_mark_content2">좋아하는 맛집에 ❤︎를 눌러주세요</string>
+    <string name="request_content1">문 앞에 두고 사진을 보내주세요 (초인종 o)</string>
+    <string name="request_content2">문 앞에 두고 사진을 보내주세요 (초인종 x)</string>
+    <string name="request_content3">직접 받을게요 (부재 시 문 앞)</string>
+    <string name="request_content4">문 앞에 놔주세요 (초인종 o)</string>
+    <string name="request_content5">문 앞에 놔주세요 (초인종 x)</string>
+    <string name="request_content6">도착하면 전화해주세요</string>
+    <string name="request_content7">도착하면 문자해주세요</string>
+    <string name="request_content8">직접 입력하기</string>
 
 </resources>

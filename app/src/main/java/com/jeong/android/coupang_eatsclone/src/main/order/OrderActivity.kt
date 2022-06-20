@@ -10,6 +10,7 @@ import android.view.WindowManager
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.jeong.android.coupang_eatsclone.R
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.decimal
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityOrderBinding
 import com.jeong.android.coupang_eatsclone.src.main.order.models.MenuOption
@@ -99,7 +100,7 @@ class OrderActivity : BaseActivity<ActivityOrderBinding>(ActivityOrderBinding::i
             .into(binding.ivOrderMenu)
         binding.tvOrderMenuName.text = response.result.menu_name
         binding.tvAppBarMenuName.text = response.result.menu_name
-        binding.tvOrderMenuPrice.text = "${response.result.menu_price}원"
+        binding.tvOrderMenuPrice.text = "${decimal.format(response.result.menu_price)}원"
 
         orderRecyclerViewAdapter.addData(response.result.menu_option)
     }

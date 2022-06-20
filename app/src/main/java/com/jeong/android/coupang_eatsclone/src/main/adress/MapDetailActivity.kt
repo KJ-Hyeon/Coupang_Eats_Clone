@@ -235,6 +235,9 @@ class MapDetailActivity :
     }
 
     override fun onPostAddressSuccess(response: AddressResponse) {
+        // 주문하기에 필요한 주소 식별자를 SP에 저장하기 위해서
+        editor.putInt("AddressId",response.result.address_id)
+        editor.commit()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

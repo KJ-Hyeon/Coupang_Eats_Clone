@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.decimal
 import com.jeong.android.coupang_eatsclone.databinding.ItemOrderMenuInRadioBinding
 import com.jeong.android.coupang_eatsclone.src.main.order.models.MenuOption
 
@@ -51,7 +52,7 @@ class OrderRecyclerViewAdapter(private val data: MutableList<MenuOption>) :
     inner class OrderRecyclerViewHolder(private val binding: ItemOrderMenuInRadioBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuOption ) {
             binding.optionMenuName.text = item.option_name
-            binding.optionMenuPrice.text = "(+${item.option_price}원)"
+            binding.optionMenuPrice.text = "(+${decimal.format(item.option_price)}원)"
             // 클릭 이벤트
             binding.btnMenuRadio.apply {
                 isChecked = selectCheck[adapterPosition] == 1

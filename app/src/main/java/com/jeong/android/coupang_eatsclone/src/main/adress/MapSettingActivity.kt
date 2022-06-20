@@ -30,6 +30,7 @@ class MapSettingActivity: BaseActivity<ActivityMapSettingBinding>(ActivityMapSet
         addressRecyclerViewAdapter.setOnItemClickListener(object : AddressRecyclerViewAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: ResultAddressList, Pos: Int) {
                 editor.putString("mainAddress",data.main_address)
+                editor.putInt("AddressId",data.address_id)
                 editor.commit()
                 finish()
             }

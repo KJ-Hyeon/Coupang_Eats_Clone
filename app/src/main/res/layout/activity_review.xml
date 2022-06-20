@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="12dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintBottom_toBottomOf="@id/tv_store_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_store_name" />
+
+    <TextView
+        android:id="@+id/tv_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="큰집멸치국수 리뷰" />
+
+    <me.didik.component.StickyNestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_store_name"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:stickyHeader="@id/con_review">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_store_name">
+
+            <TextView
+                android:id="@+id/tv_store_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="4.7" />
+
+            <RatingBar
+                android:id="@+id/ic_rating_bar"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:isIndicator="true"
+                android:rating="1.5"
+                android:scaleX=".6"
+                android:scaleY=".6"
+                android:theme="@style/reviewRatingBar"
+                app:layout_constraintStart_toStartOf="@id/tv_store_rate"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="리뷰"
+                android:textColor="@color/text_black"
+                app:layout_constraintStart_toStartOf="@id/ic_rating_bar"
+                app:layout_constraintTop_toBottomOf="@id/ic_rating_bar" />
+
+            <TextView
+                android:id="@+id/tv_review_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/text_black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/review"
+                app:layout_constraintTop_toTopOf="@id/review"
+                tools:text="284" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="개"
+                android:textColor="@color/text_black"
+                app:layout_constraintStart_toEndOf="@id/tv_review_cnt"
+                app:layout_constraintTop_toTopOf="@id/review" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_review"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/review"
+                android:layout_marginTop="25dp"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <CheckBox
+                    android:id="@+id/check_photo_review"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:background="@drawable/join_check_selected"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:button="@null"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_photo_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="포토리뷰"
+                    android:textColor="@color/Bottom_Text_blue"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/check_photo_review"
+                    app:layout_constraintStart_toEndOf="@id/check_photo_review"
+                    app:layout_constraintTop_toTopOf="@id/check_photo_review" />
+
+                <TextView
+                    android:id="@+id/tv_review_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최신순"
+                    android:textColor="@color/text_black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/ic_arrow_down"
+                    app:layout_constraintTop_toTopOf="@id/tv_photo_review" />
+
+                <ImageView
+                    android:id="@+id/ic_arrow_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_down"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_review_sort"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_review_sort" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev_review"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/con_review"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_review"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </me.didik.component.StickyNestedScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

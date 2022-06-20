@@ -45,6 +45,7 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>(ActivitySettingBind
         val edit = sSharedPreferences.edit()
         edit.putString("X-ACCESS-TOKEN", null)
         edit.putString("mainAddress", null)
+        edit.putInt("AddressId",-1)
         edit.commit()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

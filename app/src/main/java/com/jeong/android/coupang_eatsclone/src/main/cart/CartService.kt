@@ -1,5 +1,6 @@
 package com.jeong.android.coupang_eatsclone.src.main.cart
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import com.jeong.android.coupang_eatsclone.config.ApplicationClass
 import com.jeong.android.coupang_eatsclone.src.main.cart.models.*
@@ -68,4 +69,37 @@ class CartService(val cartInterface: CartInterface) {
             }
         })
     }
+
+    fun tryPostCart (postCartRequest: PostCartRequest, cartList: List<Int>){
+        val CartRetrofitInterface = ApplicationClass.sRetrofit.create(CartRetrofitInterface::class.java)
+        CartRetrofitInterface.postCart(postCartRequest, cartList).enqueue(object : Callback<PostCartResponse> {
+            override fun onResponse(
+                call: Call<PostCartResponse>,
+                response: Response<PostCartResponse>
+            ) {
+                if (response.isSuccessful) {
+                    cartInterface.onPostCartSuccess(response.body() as PostCartResponse)
+                } else {
+                    Log.e(TAG, "onResponse: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<PostCartResponse>, t: Throwable) {
+                cartInterface.onPostCartFailure(t.message ?: "통신오류")
+            }
+        })
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

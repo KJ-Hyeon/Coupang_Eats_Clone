@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.jeong.android.coupang_eatsclone.R
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.decimal
 import com.jeong.android.coupang_eatsclone.config.BaseActivity
 import com.jeong.android.coupang_eatsclone.databinding.ActivityStoreBinding
 import com.jeong.android.coupang_eatsclone.src.main.Store.models.MenuCategory
@@ -74,8 +75,13 @@ class StoreActivity: BaseActivity<ActivityStoreBinding>(ActivityStoreBinding::in
             .load(response.result.store_main_image_url)
             .into(binding.ivDetailStore)
         binding.tvDeliveryTime.text = response.result.delivery_time
-        binding.tvDeliveryCost.text = response.result.start_delivery_fee.toString()
-        binding.tvMinDeliveryCost.text = response.result.minimum_price.toString()
+
+        if (response.result.start_delivery_fee == 0) {
+            binding.tvDeliveryCost.text = "무료배달"
+        } else {
+            binding.tvDeliveryCost.text = "${decimal.format(response.result.start_delivery_fee)}원"
+        }
+        binding.tvMinDeliveryCost.text = "${decimal.format(response.result.minimum_price)}원"
         binding.tvReviewAvg.text = format("%.1f", response.result.average)
         binding.tvReviewCnt.text = "(${response.result.cnt})"
 

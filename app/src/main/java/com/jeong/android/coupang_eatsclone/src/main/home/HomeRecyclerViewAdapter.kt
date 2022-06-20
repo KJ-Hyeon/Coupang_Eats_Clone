@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.jeong.android.coupang_eatsclone.config.ApplicationClass.Companion.decimal
 import com.jeong.android.coupang_eatsclone.databinding.ItemHomeStoreBinding
 import com.jeong.android.coupang_eatsclone.src.main.home.models.StoreRes
 
@@ -59,7 +60,7 @@ class HomeRecyclerViewAdapter(private val data: MutableList<StoreRes>) :
             if (item.start_delivery_fee == "0") {
                 binding.homeRevDelivertCost.text = "무료배달~"
             } else {
-                binding.homeRevDelivertCost.text = "배달비${item.start_delivery_fee}원"
+                binding.homeRevDelivertCost.text = "배달비${decimal.format(item.start_delivery_fee)}원"
             }
             if (item.is_cheetah_delivery == "N") {
                 binding.homeRevCheetah.visibility = View.GONE
